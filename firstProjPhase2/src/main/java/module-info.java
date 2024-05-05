@@ -10,6 +10,7 @@ module org.example.firstprojphase2 {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
+    requires javafx.media;
 
     opens org.example.firstprojphase2 to javafx.fxml;
     exports org.example.firstprojphase2;
