@@ -13,4 +13,8 @@ module org.example.firstprojphase2 {
 
     opens org.example.firstprojphase2 to javafx.fxml;
     exports org.example.firstprojphase2;
+    exports GUI;
+    opens GUI to javafx.fxml;
+    exports GUI.mainSection;
+    opens GUI.mainSection to javafx.fxml;
 }
