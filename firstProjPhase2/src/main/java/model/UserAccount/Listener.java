@@ -1,6 +1,8 @@
 package model.UserAccount;
 
 import model.Audio.Audio;
+import model.Genre;
+import model.Playlist;
 
 import java.util.ArrayList;
 import java.util.Date;
