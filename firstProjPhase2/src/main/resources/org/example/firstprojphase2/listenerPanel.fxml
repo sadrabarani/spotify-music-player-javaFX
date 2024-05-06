@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.mainSection.ListenerPanel">
+   <children>
+      <TabPane layoutX="-1.0" prefHeight="600.0" prefWidth="550.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="user info">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label fx:id="creditLbl" layoutX="61.0" layoutY="51.0" prefHeight="48.0" prefWidth="378.0" text="Credit : 50$" />
+                        <Label fx:id="passlbl" layoutX="61.0" layoutY="248.0" prefHeight="48.0" prefWidth="378.0" text="Password" />
+                        <Label fx:id="dateBirth" layoutX="61.0" layoutY="334.0" prefHeight="48.0" prefWidth="378.0" text="Date of birth : " />
+                        <Label fx:id="nameLbl" layoutX="61.0" layoutY="407.0" prefHeight="48.0" prefWidth="378.0" text="Full name" />
+                        <Label fx:id="phoneLbl" layoutX="61.0" layoutY="471.0" prefHeight="48.0" prefWidth="378.0" text="Phone number : " />
+                        <Label fx:id="userlbl" layoutX="61.0" layoutY="178.0" prefHeight="48.0" prefWidth="378.0" text="UserName" />
+                        <Label fx:id="emaillbl" layoutX="61.0" layoutY="112.0" prefHeight="48.0" prefWidth="378.0" text="Email : " />
+                        <Button layoutX="439.0" layoutY="519.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="90.0" text="Back" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="PLay Lists">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="444.0" prefWidth="388.0">
+                     <children>
+                        <ListView fx:id="playListView" layoutX="23.0" layoutY="18.0" prefHeight="490.0" prefWidth="510.0" />
+                        <Button fx:id="addPlayList" layoutX="23.0" layoutY="523.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="90.0" text="Add play list" />
+                        <Button fx:id="BackBtn" layoutX="442.0" layoutY="523.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="90.0" text="Back" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Following">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="444.0" prefWidth="388.0">
+                     <children>
+                        <ListView fx:id="folowingsListView1" layoutX="23.0" layoutY="18.0" prefHeight="490.0" prefWidth="510.0" />
+                        <Button fx:id="BackBtn1" layoutX="442.0" layoutY="523.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="90.0" text="Back" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Premium">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="9.0" layoutY="32.0" prefHeight="63.0" prefWidth="390.0" text="Buy subscription plan">
+                           <font>
+                              <Font size="27.0" />
+                           </font>
+                        </Label>
+                        <Separator layoutX="14.0" layoutY="94.0" prefHeight="22.0" prefWidth="356.0" />
+                        <Button fx:id="oneMonSubBtn" layoutX="14.0" layoutY="175.0" mnemonicParsing="false" prefHeight="282.0" prefWidth="142.0" text="One MonthPlan  5$" textAlignment="CENTER" textFill="#0010f5" textOverrun="LEADING_ELLIPSIS" wrapText="true">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="twoMonSubBtn" layoutX="192.0" layoutY="176.0" mnemonicParsing="false" prefHeight="282.0" prefWidth="150.0" text="Two Month Plan / 9$" textAlignment="CENTER" textFill="#00b100" textOverrun="LEADING_ELLIPSIS" wrapText="true">
+                           <font>
+                              <Font size="23.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="sixMonSubBtn" layoutX="381.0" layoutY="176.0" mnemonicParsing="false" prefHeight="282.0" prefWidth="154.0" text="Six Month Plan / 14$" textAlignment="CENTER" textFill="RED" textOverrun="LEADING_ELLIPSIS" wrapText="true">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Button>
+                        <Separator layoutX="152.0" layoutY="159.0" orientation="VERTICAL" prefHeight="333.0" prefWidth="51.0" />
+                        <Separator layoutX="335.0" layoutY="156.0" orientation="VERTICAL" prefHeight="338.0" prefWidth="44.0" />
+                        <Button fx:id="BackBtn4" layoutX="399.0" layoutY="502.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="134.0" text="Back" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
