@@ -9,7 +9,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.ImagePattern;
-
+import org.example.firstprojphase2.HelloApplication;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.Timer;
@@ -54,7 +54,7 @@ public class PlayBar implements Initializable {
     void nextMusic(ActionEvent event) {
         mediaPlayer.stop();
         cancelTimer();
-        if (++index>=HelloApplication.getPlayList().size()) index=0; //todo adding path for media
+       // if (++index>=HelloApplication.getPlayList().size()) index=0; //todo adding path for media
         playing=0;
         playMedia();
     }
@@ -64,7 +64,7 @@ public class PlayBar implements Initializable {
         if (playing!=1){
             playBtn.setText("PAUSE");
             if (playing==0){
-                path = HelloApplication.getPlayList().get(index);
+              //  path = HelloApplication.getPlayList().get(index);
                 media = new Media(path);
                 mediaPlayer = new MediaPlayer(media);
             }
@@ -84,7 +84,7 @@ public class PlayBar implements Initializable {
     void prevMusic(ActionEvent event) {
         mediaPlayer.stop();
         cancelTimer();
-        if (--index<0) index=HelloApplication.getPlayList().size()-1;
+   //     if (--index<0) index=HelloApplication.getPlayList().size()-1;
         playing=0;
         playMedia();
     }
