@@ -25,18 +25,18 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class PlayMusic implements Initializable {
-    private Audio audio=null;
-    PlayMusic playMusic;
-    public void setAudio(Audio audio) {
+    public static Audio audio=null;
+    private static PlayMusic playMusic;
+    public  void setAudio(Audio audio) {
         this.audio = audio;
     }
-    public void setPlayMusic(PlayMusic playMusic) {
-        this.playMusic = playMusic;
-    }
-    public Audio getAudio() {
+    public static Audio getAudio() {
         return audio;
     }
-    public PlayMusic getPlayMusic() {
+    public static PlayMusic getPlayMusic() {
+        if (playMusic == null) {
+            playMusic=new PlayMusic();
+        }
         return playMusic;
     }
 

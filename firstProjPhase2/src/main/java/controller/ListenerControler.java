@@ -430,7 +430,7 @@ public class ListenerControler {
         return "befor :"+str+", now :"+listenerr.getEndSubDate().toString();
     }
 
-    public String suggestAudio(int n){
+    public ArrayList<Audio> suggestAudio(int n){
         Map.Entry<Integer,Integer>[] arrmap=listenerr.getListeningHistory().entrySet().toArray(new Map.Entry[listenerr.getListeningHistory().size()]);
         for (int i = 0; i <arrmap.length-1 ; i++) {
             for (int j = 0; j < arrmap.length-1-i; j++) {
@@ -489,10 +489,12 @@ public class ListenerControler {
             }
         }
         StringBuilder str=new StringBuilder("suggest:\n");
+        ArrayList<Audio> retArrAudio=new ArrayList<>();
         for (int i = 0; i < n; i++) {
+            retArrAudio.add(audioArrayList.get(i));
             str.append("title : ").append(audioArrayList.get(i).getTitle()).append(" artist name : ").append(audioArrayList.get(i).getArtistName()).append("\n");
         }
-        return String.valueOf(str);
+        return retArrAudio;
     }
     public String lyric(int audioId){
         for(Audio audio:Database.getDatabase().getAudios()){
