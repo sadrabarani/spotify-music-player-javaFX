@@ -319,25 +319,25 @@ public class ListenerControler {
         }
         return String.valueOf(result);
     }
-    public String searchByArtistName(String name){
-        StringBuilder result=new StringBuilder("artists\n");
+    public ArrayList<Artist> searchByArtistName(String name){
+        ArrayList<Artist> artistArrayList=new ArrayList<>();
         for(User user:Database.getDatabase().getUsers()){
             if(user instanceof Artist){
                 if(name.equals(user.getFullName()) || name.equals(user.getUsername())){
-                    result.append("user name ").append(user.getUsername()).append(" name : ").append(user.getFullName()).append(" follower : ").append(((Artist) user).getFollowers()).append("\n");
+                    artistArrayList.add((Artist) user);
                 }
             }
         }
-        return String.valueOf(result);
+        return artistArrayList;
     }
-    public String searchByAudio(String name){
-        StringBuilder result=new StringBuilder("audios :\n");
+    public ArrayList<Audio> searchByAudio(String name){
+        ArrayList<Audio> audioArrayList=new ArrayList<>();
         for(Audio audio:Database.getDatabase().getAudios()){
             if(audio.getTitle().equals(name)){
-                result.append("audio name : ").append(audio.getTitle()).append(" artist name :").append(audio.getArtistName()).append("\n");
+                audioArrayList.add(audio);
             }
         }
-        return String.valueOf(result);
+        return audioArrayList;
     }
 
     public String sortLikes(){

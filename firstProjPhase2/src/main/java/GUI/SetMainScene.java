@@ -44,6 +44,9 @@ public class SetMainScene {
             case 11: //Audio of play list
                 FXMLLoader fxmlLoader11=new FXMLLoader(HelloApplication.class.getResource("audioOf_playList.fxml"));
                 return fxmlLoader11;
+            case 12: //search result
+                FXMLLoader fxmlLoader12=new FXMLLoader(HelloApplication.class.getResource("search_page.fxml"));
+                return fxmlLoader12;
         }
         return new FXMLLoader(HelloApplication.class.getResource("listenerPanel.fxml"));
     }
