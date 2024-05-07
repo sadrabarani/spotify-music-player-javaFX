@@ -211,14 +211,14 @@ public class ListenerControler {
         }
         return "error";
     }
-    public  String showArtists(){
-        StringBuilder result=new StringBuilder("Artists:\n");
+    public  ArrayList<Artist> showArtists(){
+        ArrayList<Artist> artistArrayList=new ArrayList<>();
         for(User artist:Database.getDatabase().getUsers()) {
             if (artist instanceof Artist) {
-                result.append("artist name :").append(artist.getUsername()).append("\n");
+                artistArrayList.add((Artist) artist);
             }
         }
-        return String.valueOf(result);
+        return artistArrayList;
     }
     public String showArtist(String userName){
         StringBuilder result=new StringBuilder("Artist:\n");

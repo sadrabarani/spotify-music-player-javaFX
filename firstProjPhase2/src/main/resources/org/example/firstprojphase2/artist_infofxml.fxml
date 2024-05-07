@@ -18,7 +18,7 @@
       </Button>
       <ListView fx:id="listMusicOfArtist" editable="true" layoutX="321.0" layoutY="66.0" prefHeight="461.0" prefWidth="200.0" />
       <Button fx:id="subReport" layoutX="192.0" layoutY="535.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="90.0" text="submit report" />
-      <Button fx:id="FollowBtn" layoutX="87.0" layoutY="273.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="200.0" text="Follow" />
+      <Button fx:id="followBtn" layoutX="87.0" layoutY="273.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="200.0" text="Follow" />
       <Label layoutX="33.0" layoutY="14.0" text="Artist Info">
          <font>
             <Font size="28.0" />
