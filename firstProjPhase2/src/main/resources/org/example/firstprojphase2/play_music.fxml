@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.mainSection.PlayMusic">
+   <children>
+      <ScrollPane layoutX="-1.0" layoutY="-2.0" pannable="true" prefHeight="600.0" prefWidth="550.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="598.0" prefWidth="550.0">
+               <children>
+                  <Rectangle fx:id="cover" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="184.0" layoutX="25.0" layoutY="26.0" stroke="BLACK" strokeType="INSIDE" width="491.0" />
+                  <Label fx:id="musicNameLbl" layoutX="25.0" layoutY="230.0" prefHeight="94.0" prefWidth="230.0" style="-fx-background-color: GHOSTWHITE;" text="Music name" wrapText="true">
+                     <font>
+                        <Font size="29.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="artistLbl" layoutX="285.0" layoutY="237.0" prefHeight="90.0" prefWidth="102.0" text="Artist" wrapText="true">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="genreLbl" layoutX="394.0" layoutY="238.0" prefHeight="89.0" prefWidth="122.0" text="Genre" wrapText="true">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="numerOfLikesLbl" layoutX="64.0" layoutY="346.0" prefHeight="51.0" prefWidth="72.0" text="Likes : ">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="likeBtn" layoutX="418.0" layoutY="526.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="98.0" text="Back" wrapText="true">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
+                  <MenuButton fx:id="addPlayList" layoutX="280.0" layoutY="354.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="233.0" text="Add to play list">
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="play list 1 name" />
+                      <MenuItem mnemonicParsing="false" text="Action 2" />
+                    </items>
+                  </MenuButton>
+                  <Button fx:id="backBtn" layoutX="136.0" layoutY="349.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="79.0" style="-fx-background-color: Red;" text="Like" wrapText="true">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <Label fx:id="lyricLbl" layoutX="36.0" layoutY="410.0" prefHeight="102.0" prefWidth="487.0" style="-fx-background-color: FLORALWHITE;" text="lyrics" textAlignment="CENTER" wrapText="true" />
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>
