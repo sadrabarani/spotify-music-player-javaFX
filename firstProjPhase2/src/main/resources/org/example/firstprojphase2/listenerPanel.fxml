@@ -6,6 +6,7 @@
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -35,7 +36,8 @@
                      <children>
                         <ListView fx:id="playListView" layoutX="23.0" layoutY="18.0" prefHeight="490.0" prefWidth="510.0" style="-fx-background-color: FLORALWHITE;" />
                         <Button fx:id="addPlayList" layoutX="23.0" layoutY="523.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="90.0" text="Add play list" />
-                        <Button fx:id="BackBtn" layoutX="442.0" layoutY="523.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="90.0" text="Back" />
+                        <Button fx:id="backBtn" layoutX="442.0" layoutY="523.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="90.0" text="Back" />
+                        <TextField fx:id="playlistNameTxt" layoutX="129.0" layoutY="524.0" promptText="new play list name" />
                      </children>
                   </AnchorPane>
             </content>
@@ -45,7 +47,7 @@
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="444.0" prefWidth="388.0">
                      <children>
                         <ListView fx:id="folowingsListView1" layoutX="23.0" layoutY="18.0" prefHeight="490.0" prefWidth="510.0" style="-fx-background-color: FLORALWHITE;" />
-                        <Button fx:id="BackBtn1" layoutX="442.0" layoutY="523.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="90.0" text="Back" />
+                        <Button fx:id="backBtn1" layoutX="442.0" layoutY="523.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="90.0" text="Back" />
                      </children>
                   </AnchorPane>
                </content>
@@ -77,7 +79,7 @@
                         </Button>
                         <Separator layoutX="152.0" layoutY="159.0" orientation="VERTICAL" prefHeight="333.0" prefWidth="51.0" />
                         <Separator layoutX="335.0" layoutY="156.0" orientation="VERTICAL" prefHeight="338.0" prefWidth="44.0" />
-                        <Button fx:id="BackBtn4" layoutX="399.0" layoutY="502.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="134.0" text="Back" />
+                        <Button fx:id="backBtn4" layoutX="399.0" layoutY="502.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="134.0" text="Back" />
                      </children>
                   </AnchorPane>
               </content>

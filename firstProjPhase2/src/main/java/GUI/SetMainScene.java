@@ -33,7 +33,7 @@ public class SetMainScene {
                 FXMLLoader fxmlLoader7=new FXMLLoader(HelloApplication.class.getResource("all_ArtistsFxml.fxml"));
                 return fxmlLoader7;
             case 8: // artist info
-                FXMLLoader fxmlLoader8=new FXMLLoader(HelloApplication.class.getResource("signInPg.fxml"));
+                FXMLLoader fxmlLoader8=new FXMLLoader(HelloApplication.class.getResource("artist_infofxml.fxml"));
                 return fxmlLoader8;
             case 9: // home page for not login people
                 FXMLLoader fxmlLoader9=new FXMLLoader(HelloApplication.class.getResource("home_sortLikeListFxml.fxml"));
@@ -41,6 +41,9 @@ public class SetMainScene {
             case 10: //home page for login people
                 FXMLLoader fxmlLoader10=new FXMLLoader(HelloApplication.class.getResource("home_SugestForLogin.fxml"));
                 return fxmlLoader10;
+            case 11: //Audio of play list
+                FXMLLoader fxmlLoader11=new FXMLLoader(HelloApplication.class.getResource("audioOf_playList.fxml"));
+                return fxmlLoader11;
         }
         return new FXMLLoader(HelloApplication.class.getResource("listenerPanel.fxml"));
     }
