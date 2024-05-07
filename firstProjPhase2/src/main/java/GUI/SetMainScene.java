@@ -9,7 +9,7 @@ import org.example.firstprojphase2.HelloApplication;
 import java.io.IOException;
 
 public class SetMainScene {
-    public static FXMLLoader setMainScene(int secNum){
+    public static FXMLLoader setMainSection(int secNum){
         switch (secNum) {
             case 1: //listener panel
                 FXMLLoader fxmlLoader=new FXMLLoader(HelloApplication.class.getResource("listenerPanel.fxml"));
@@ -35,12 +35,18 @@ public class SetMainScene {
             case 8: // artist info
                 FXMLLoader fxmlLoader8=new FXMLLoader(HelloApplication.class.getResource("signInPg.fxml"));
                 return fxmlLoader8;
+            case 9: // home page for not login people
+                FXMLLoader fxmlLoader9=new FXMLLoader(HelloApplication.class.getResource("home_sortLikeListFxml.fxml"));
+                return fxmlLoader9;
+            case 10: //home page for login people
+                FXMLLoader fxmlLoader10=new FXMLLoader(HelloApplication.class.getResource("home_SugestForLogin.fxml"));
+                return fxmlLoader10;
         }
         return new FXMLLoader(HelloApplication.class.getResource("listenerPanel.fxml"));
     }
 
     public static Parent setScene(int secNum) throws IOException {
-        FXMLLoader fxmlLoader= SetMainScene.setMainScene(secNum);
+        FXMLLoader fxmlLoader= SetMainScene.setMainSection(secNum);
         FXMLLoader sideFxml=new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
         FXMLLoader playBarFxml=new FXMLLoader(HelloApplication.class.getResource("play_bar.fxml"));
         HBox splitPane = new HBox();
