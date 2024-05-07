@@ -1,17 +1,32 @@
 package GUI;
 
+import GUI.mainSection.PlayMusic;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.SplitPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import model.Audio.Audio;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class SideBar implements Initializable {
-
+    private Audio audio=null;
+    SideBar sideBar;
+    public void setAudio(Audio audio) {
+        this.audio = audio;
+    }
+    public void setPlayMusic(SideBar playMusic) {
+        this.sideBar = playMusic;
+    }
+    public Audio getAudio() {
+        return audio;
+    }
+    public SideBar getPlayMusic() {
+        return sideBar;
+    }
     @FXML
     private AnchorPane anchor1;
 
