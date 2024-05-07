@@ -1,7 +1,7 @@
 package org.example.firstprojphase2;
 
+import GUI.SetMainScene;
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
@@ -25,8 +25,13 @@ public class HelloApplication extends Application {
     }
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
+
+        Scene scene = null;
+        try {
+            scene = new Scene(SetMainScene.setScene(1));
+        }catch (IOException ioException){
+            System.out.println(ioException.getMessage());
+        }
         stage.setTitle("Hello!");
         stage.setScene(scene);
         stage.show();
