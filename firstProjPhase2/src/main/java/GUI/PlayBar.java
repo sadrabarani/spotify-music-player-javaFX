@@ -9,6 +9,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.ImagePattern;
+import model.Audio.Audio;
 import org.example.firstprojphase2.HelloApplication;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -16,6 +17,28 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class PlayBar implements Initializable {
+    private static PlayBar playBar;
+    private static Audio audio=null;
+
+    public static PlayBar getPlayBar() {
+        if (playBar == null) {
+            playBar=new PlayBar();
+        }
+        return playBar;
+    }
+
+    public static Audio getAudio() {
+        return audio;
+    }
+
+    public static void setPlayBar(PlayBar playBar) {
+        PlayBar.playBar = playBar;
+    }
+
+    public static void setAudio(Audio audio) {
+        PlayBar.audio = audio;
+    }
+
     private static int index=0;
     private static String path;
     private static Media media;
