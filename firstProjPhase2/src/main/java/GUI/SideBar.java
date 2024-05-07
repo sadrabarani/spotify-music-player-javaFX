@@ -46,7 +46,7 @@ public class SideBar implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         searchField.setOnKeyPressed();
         libraryBtn.setOnMouseClicked(e->{
-            if
+         //   if
         });
     }
 }
