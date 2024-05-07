@@ -28,7 +28,7 @@ public class HelloApplication extends Application {
 
         Scene scene = null;
         try {
-            scene = new Scene(SetMainScene.setScene(1));
+            scene = new Scene(SetMainScene.setScene(9));
         }catch (IOException ioException){
             System.out.println(ioException.getMessage());
         }
