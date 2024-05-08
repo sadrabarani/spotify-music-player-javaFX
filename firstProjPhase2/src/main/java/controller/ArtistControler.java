@@ -28,9 +28,9 @@ public class ArtistControler {
             Music music0=new Music(Audio.getIdcounter(),title,artist.getUsername(),0,0,new Date(), Genre.valueOf(genre),link,cover,caption);
             int tmpindex=0;
             Audio.setIdcounter(Audio.getIdcounter()+1);
-            for(Album album: ((Singer) artist).getAlbums()){
+            for(Music album: ((Singer) artist).getAlbums()){
                 if(albumId==album.getId()){
-                    ((Singer) artist).getAlbums().get(tmpindex).getSongs().add(music0);
+                    ((Singer) artist).getAlbums().add(music0);
                 }else
                     tmpindex++;
             }
@@ -38,12 +38,12 @@ public class ArtistControler {
         }
         return "music added";
     }
-    public String newAlbum(String name){
-        Album album0=new Album(Album.getAlbumCounter(),name,artist.getUsername());
-        Album.setAlbumCounter(Album.getAlbumCounter()+1);
-        ((Singer)artist).getAlbums().add(album0);
-        return "album created";
-    }
+//    public String newAlbum(String name){
+//        Album album0=new Album(Album.getAlbumCounter(),name,artist.getUsername());
+//        Album.setAlbumCounter(Album.getAlbumCounter()+1);
+//        ((Singer)artist).getAlbums().add(album0);
+//        return "album created";
+//    }
     public ArtistControler() {
     }
 
@@ -112,11 +112,9 @@ public class ArtistControler {
         StringBuilder str=new StringBuilder(" view static: \n");
         int totalplayCount=0;
         if(artist instanceof Singer){
-            for(Album album:((Singer) artist).getAlbums()){
-                for(Music music:album.getSongs()) {
-                    str.append(" music name :").append(music.getTitle()).append(" view : ").append(music.getPlayCount());
-                    totalplayCount += music.getPlayCount();
-                }
+            for(Music music:((Singer) artist).getAlbums()) {
+                str.append(" music name :").append(music.getTitle()).append(" view : ").append(music.getPlayCount());
+                totalplayCount += music.getPlayCount();
             }
         }
         if(artist instanceof Podcaster){
@@ -130,10 +128,8 @@ public class ArtistControler {
     public String calculateEarning(){
         double total=0;
         if(artist instanceof Singer){
-            for(Album album:((Singer) artist).getAlbums()){
-                for(Music music:album.getSongs()) {
-                total+= music.getPlayCount()*0.4;
-                }
+            for(Music music:((Singer) artist).getAlbums()) {
+                total += music.getPlayCount() * 0.4;
             }
         }
         if(artist instanceof Podcaster){

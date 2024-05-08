@@ -1,12 +1,13 @@
 package model.UserAccount;
 
 import model.Album;
+import model.Audio.Music;
 
 import java.util.ArrayList;
 import java.util.Date;
 
 public class Singer extends Artist{
-    private ArrayList<Album> albums;
+    private ArrayList<Music> albums;
     private String bio;
 
 
@@ -28,17 +29,17 @@ public class Singer extends Artist{
     public String toString() {
         StringBuilder res = new StringBuilder("biography : ");
         res.append(bio).append(" albums : ");
-        for(Album album:albums){
+        for(Music album:albums){
             res.append(album.toString());
         }
         return super.toString()+"\n"+String.valueOf(res);
     }
 
-    public void setAlbums(ArrayList<Album> albums) {
+    public void setAlbums(ArrayList<Music> albums) {
         this.albums = albums;
     }
 
-    public ArrayList<Album> getAlbums() {
+    public ArrayList<Music> getAlbums() {
         return albums;
     }
 }
