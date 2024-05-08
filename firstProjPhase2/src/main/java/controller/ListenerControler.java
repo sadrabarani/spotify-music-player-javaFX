@@ -228,7 +228,7 @@ public class ListenerControler {
                     result.append("artist name :").append(artist.getFullName()).append(" followers : ").append(((Artist) artist).getFollowers().size()).append("\n");
                     if (artist instanceof Singer) {
                         result.append("musics : ");
-                        for (Album album : ((Singer) artist).getAlbums()) {
+                        for (Music album : ((Singer) artist).getAlbums()) {
                             result.append(album.toString());
                         }
                     }
