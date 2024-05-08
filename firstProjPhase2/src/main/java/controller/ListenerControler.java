@@ -340,7 +340,7 @@ public class ListenerControler {
         return audioArrayList;
     }
 
-    public String sortLikes(){
+    public ArrayList<Audio> sortLikes(){
         ArrayList<Audio> audioArrayList=Database.getDatabase().getAudios();
         Audio tmpAudio;
         for (int i = 0; i < audioArrayList.size()-1; i++) {
@@ -352,11 +352,7 @@ public class ListenerControler {
                 }
             }
         }
-        StringBuilder result=new StringBuilder("audios :\n");
-        for(Audio audio:audioArrayList) {
-            result.append(audio.getTitle()).append(", ").append("likes : ").append(audio.getLikes()).append("\n");
-        }
-        return String.valueOf(result);
+        return audioArrayList;
     }
     public String sortPlay(){
         ArrayList<Audio> audioArrayList=Database.getDatabase().getAudios();

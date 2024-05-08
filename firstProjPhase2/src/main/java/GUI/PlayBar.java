@@ -12,6 +12,7 @@ import javafx.scene.paint.ImagePattern;
 import model.Audio.Audio;
 import org.example.firstprojphase2.HelloApplication;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -19,7 +20,7 @@ import java.util.TimerTask;
 public class PlayBar implements Initializable {
     private static PlayBar playBar;
     private static Audio audio=null;
-
+    private static ArrayList<Audio> audioArrayList=new ArrayList<>();
     public static PlayBar getPlayBar() {
         if (playBar == null) {
             playBar=new PlayBar();
