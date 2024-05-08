@@ -81,7 +81,18 @@ public class ArtistInfofxml implements Initializable {
                 });
             }
         } else if (artist instanceof Singer) {
-            for(Audio audio:((Singer) artist).getAlbums())//todo deleting album
+            for(Audio audio:((Singer) artist).getAlbums()){
+                listMusicOfArtist.getItems().add(audio);
+                listMusicOfArtist.setOnMouseClicked(e->{
+                    PlayMusic.audio=audio;
+                    PlayBar.setAudio(audio);
+                    try {
+                        SetMainScene.setScene(4);
+                    } catch (IOException ex) {
+                        throw new RuntimeException(ex);
+                    }
+                });
+            }
         }
     }
 }

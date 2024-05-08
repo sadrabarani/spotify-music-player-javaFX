@@ -23,7 +23,7 @@ public class SetMainScene {
             case 4: // play music
                 FXMLLoader fxmlLoader4=new FXMLLoader(HelloApplication.class.getResource("play_music.fxml"));
                 return fxmlLoader4;
-            case 5: //sign in panel
+            case 5: //sign in panel //todo delete
                 FXMLLoader fxmlLoader5=new FXMLLoader(HelloApplication.class.getResource("signInPg.fxml"));
                 return fxmlLoader5;
             case 6: //all audios
