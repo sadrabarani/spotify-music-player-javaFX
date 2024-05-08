@@ -1,5 +1,6 @@
 package GUI.mainSection;
 
+import GUI.PlayBar;
 import GUI.SetMainScene;
 import controller.ListenerControler;
 import javafx.fxml.FXML;
@@ -8,7 +9,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
+import model.Audio.Audio;
 import model.UserAccount.Artist;
+import model.UserAccount.Podcaster;
+import model.UserAccount.Singer;
 
 import java.io.IOException;
 import java.net.URL;
@@ -63,6 +67,22 @@ public class ArtistInfofxml implements Initializable {
                 throw new RuntimeException(ex);
             }
         });
+        if(artist instanceof Podcaster) {
+            for (Audio audio : ((Podcaster) artist).getPodcasts()){
+                listMusicOfArtist.getItems().add(audio);
+                listMusicOfArtist.setOnMouseClicked(e->{
+                    PlayMusic.audio=audio;
+                    PlayBar.setAudio(audio);
+                    try {
+                        SetMainScene.setScene(4);
+                    } catch (IOException ex) {
+                        throw new RuntimeException(ex);
+                    }
+                });
+            }
+        } else if (artist instanceof Singer) {
+            for(Audio audio:((Singer) artist).getAlbums())//todo deleting album
+        }
     }
 }
 
