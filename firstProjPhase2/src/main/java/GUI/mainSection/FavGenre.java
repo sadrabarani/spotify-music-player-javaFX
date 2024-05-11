@@ -1,11 +1,13 @@
 package GUI.mainSection;
 
 import GUI.SetMainScene;
+import GUI.Warning;
 import controller.ListenerControler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
+import org.example.firstprojphase2.HelloApplication;
 
 import java.io.IOException;
 import java.net.URL;
@@ -89,7 +91,7 @@ public class FavGenre implements Initializable {
                 selectedItems.add("TrueCrime");
             }
             if(numberOfSelection>4)
-                System.out.println("eror num of fav selection");
+                Warning.warning("Warning","you should choose 4 or less genre ");
             else{
                 while(numberOfSelection<=0) {
                     ListenerControler.getListenerControler().chooseFavoriteGenre(selectedItems.get(numberOfSelection-1));
@@ -99,7 +101,8 @@ public class FavGenre implements Initializable {
         });
         backBtn.setOnMouseClicked(e->{
             try {
-                SetMainScene.setScene(9);
+                HelloApplication.whereAmI.remove(HelloApplication.whereAmI.size()-1);
+                SetMainScene.setScene(HelloApplication.whereAmI.get(HelloApplication.whereAmI.size()-1));
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }

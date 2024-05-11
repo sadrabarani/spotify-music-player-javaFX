@@ -1,10 +1,10 @@
 package exeptions;
 
 public class InvalidFormatException extends FailedLoginException{
-    InvalidFormatException(String msg){
+    public InvalidFormatException(String msg){
         super(msg);
     }
-    InvalidFormatException(){
+    public InvalidFormatException(){
         super("wrong format for phone number or email");
     }
 }
