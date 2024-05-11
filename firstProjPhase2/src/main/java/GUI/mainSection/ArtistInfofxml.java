@@ -1,7 +1,9 @@
 package GUI.mainSection;
 
+import GUI.IsLogin;
 import GUI.PlayBar;
 import GUI.SetMainScene;
+import GUI.Warning;
 import controller.ListenerControler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -16,6 +18,7 @@ import model.UserAccount.Singer;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.InputMismatchException;
 import java.util.ResourceBundle;
 
 public class ArtistInfofxml implements Initializable {
@@ -50,21 +53,36 @@ public class ArtistInfofxml implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         subReport.setOnMouseClicked(e->{
-            if(reportDis.getText().isEmpty()){
-
-            }else{
-                ListenerControler.getListenerControler().reportArtist(artist.getUsername(),reportDis.getText());
+            if(!IsLogin.isIsLogin())
+                IsLogin.notLogin();
+            else {
+                if (reportDis.getText().isEmpty()) {
+                    Warning.warning("input empty", "write cause of your report");
+                } else {
+                    ListenerControler.getListenerControler().reportArtist(artist.getUsername(), reportDis.getText());
+                }
             }
         });
         artistInfoLbl.setText(artist.getFullName()+"\n"+artist.getUsername()+"\n"+artist.getFollowers()+"\n"+artist.getBiography()+"\n"+artist.getEmail());
         followBtn.setOnMouseClicked(e->{
+            if(!IsLogin.isIsLogin()){
+                IsLogin.notLogin();
+            }
             ListenerControler.getListenerControler().followArtist(artist.getUsername());
         });
         backBtn.setOnMouseClicked(e->{
-            try {
-                SetMainScene.setScene(10);
-            } catch (IOException ex) {
-                throw new RuntimeException(ex);
+            if (IsLogin.isIsLogin()){
+                try {
+                    SetMainScene.setScene(10);
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
+            }else{
+                try {
+                    SetMainScene.setScene(9);
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
             }
         });
         if(artist instanceof Podcaster) {

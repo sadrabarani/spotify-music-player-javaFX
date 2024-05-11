@@ -1,5 +1,6 @@
 package GUI.mainSection;
 
+import GUI.IsLogin;
 import GUI.SetMainScene;
 import controller.ListenerControler;
 import javafx.fxml.FXML;
@@ -18,6 +19,7 @@ public class AllArtistsFxml implements Initializable {
     @FXML
     private ListView allArtistsList;
 
+    //todo add artist to data base
     @FXML
     private Button backBtn;
 
@@ -32,11 +34,20 @@ public class AllArtistsFxml implements Initializable {
                 SetMainScene.setMainSection(8);
             });
         }
+
         backBtn.setOnMouseClicked(e->{
+            if (IsLogin.isIsLogin()){
             try {
-                SetMainScene.setScene(10);//todo is login
+                SetMainScene.setScene(10);
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
+            }
+            }else{
+                try {
+                    SetMainScene.setScene(9);
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
             }
         });
     }
