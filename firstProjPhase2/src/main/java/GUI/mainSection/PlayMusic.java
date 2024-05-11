@@ -1,5 +1,6 @@
 package GUI.mainSection;
 
+import GUI.IsLogin;
 import GUI.SetMainScene;
 import controller.ListenerControler;
 import javafx.fxml.FXML;
@@ -55,6 +56,7 @@ public class PlayMusic implements Initializable {
     @FXML
     private Label genreLbl;
 
+
     @FXML
     private Button likeBtn;
 
@@ -69,12 +71,16 @@ public class PlayMusic implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        for (Playlist playlist:ListenerControler.getListenerControler().getListenerr().getPlaylists()){
-            MenuItem menuItem=new MenuItem(playlist.getName());
-            menuItem.setOnAction(e->{
-                ListenerControler.getListenerControler().AddAudio(playlist.getName(),audio.getId());
-            });
-            addPlayList.getItems().add(menuItem);
+        if(IsLogin.isIsLogin()) {
+            if (ListenerControler.getListenerControler().getListenerr().getPlaylists() != null) {
+                for (Playlist playlist : ListenerControler.getListenerControler().getListenerr().getPlaylists()) {
+                    MenuItem menuItem = new MenuItem(playlist.getName());
+                    menuItem.setOnAction(e -> {
+                        ListenerControler.getListenerControler().AddAudio(playlist.getName(), audio.getId());
+                    });
+                    addPlayList.getItems().add(menuItem);
+                }
+            }
         }
         artistLbl.setText(audio.getArtistName());
         numerOfLikesLbl.setText(String.valueOf(audio.getLikes()));
@@ -84,6 +90,8 @@ public class PlayMusic implements Initializable {
         else if (audio instanceof Music)
             lyricLbl.setText(((Music) audio).getCaption());
         likeBtn.setOnMouseClicked(e->{
+            if(!IsLogin.isIsLogin())
+                IsLogin.notLogin();
             ListenerControler.getListenerControler().likeAudio(audio.getId());
         });
         genreLbl.setText(String.valueOf(audio.getGenre()));
@@ -92,7 +100,8 @@ public class PlayMusic implements Initializable {
         cover.setFill(new ImagePattern(image1));
         backBtn.setOnMouseClicked(e->{
             try {
-                SetMainScene.setScene(6);
+                HelloApplication.whereAmI.remove(HelloApplication.whereAmI.size()-1);
+                SetMainScene.setScene(HelloApplication.whereAmI.get(HelloApplication.whereAmI.size()-1));
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }

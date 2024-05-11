@@ -36,7 +36,7 @@
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <Button fx:id="likeBtn" layoutX="418.0" layoutY="526.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="98.0" text="Back" wrapText="true">
+                  <Button fx:id="backBtn" layoutX="418.0" layoutY="526.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="98.0" text="Back" wrapText="true">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -47,7 +47,7 @@
                       <MenuItem mnemonicParsing="false" text="Action 2" />
                     </items>
                   </MenuButton>
-                  <Button fx:id="backBtn" layoutX="136.0" layoutY="349.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="79.0" style="-fx-background-color: Red;" text="Like" wrapText="true">
+                  <Button fx:id="likeBtn" layoutX="136.0" layoutY="349.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="79.0" style="-fx-background-color: Red;" text="Like" wrapText="true">
                      <font>
                         <Font size="18.0" />
                      </font>

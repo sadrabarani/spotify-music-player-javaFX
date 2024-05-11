@@ -2,12 +2,14 @@ package GUI.mainSection;
 
 import GUI.IsLogin;
 import GUI.SetMainScene;
+import GUI.SuccesPopUp;
 import controller.ListenerControler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import model.UserAccount.Artist;
+import org.example.firstprojphase2.HelloApplication;
 
 import java.io.IOException;
 import java.net.URL;
@@ -31,23 +33,18 @@ public class AllArtistsFxml implements Initializable {
             allArtistsList.getItems().add(artist);
             allArtistsList.setOnMouseClicked(e->{
                 ArtistInfofxml.artist=artist;
+                SuccesPopUp.showSuccessfulMessage();
                 SetMainScene.setMainSection(8);
             });
         }
 
         backBtn.setOnMouseClicked(e->{
-            if (IsLogin.isIsLogin()){
+            HelloApplication.whereAmI.remove(HelloApplication.whereAmI.size()-1);
             try {
-                SetMainScene.setScene(10);
+                SuccesPopUp.showSuccessfulMessage();
+                SetMainScene.setScene(HelloApplication.whereAmI.get(HelloApplication.whereAmI.size()-1));
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
-            }
-            }else{
-                try {
-                    SetMainScene.setScene(9);
-                } catch (IOException ex) {
-                    throw new RuntimeException(ex);
-                }
             }
         });
     }

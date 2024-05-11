@@ -1,6 +1,7 @@
 package org.example.firstprojphase2;
 
 import GUI.SetMainScene;
+import GUI.SuccesPopUp;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Application;
@@ -13,88 +14,62 @@ import javafx.scene.shape.Rectangle;
 import javafx.stage.Popup;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import model.Audio.Music;
+import model.Database.Database;
+import model.Genre;
+import model.UserAccount.Singer;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Date;
 
 public class HelloApplication extends Application {
 
-    private static Stage stage;
-    private static Scene frsScene;
-    public static Stage getStage() {
-        return stage;
-    }
-    public static Scene getFrsScene() {
-        return frsScene;
-    }
-    public static void setStage(Stage stage) {
-        HelloApplication.stage = stage;
-    }
-    public static void setFrsScene(Scene frsScene) {
-        HelloApplication.frsScene = frsScene;
-    }
+//    private static Stage stage;
+//    private static Scene frsScene;
+//    public static Stage getStage() {
+//        return stage;
+//    }
+//    public static Scene getFrsScene() {
+//        return frsScene;
+//    }
+//    public static void setStage(Stage stage) {
+//        HelloApplication.stage = stage;
+//    }
+//    public static void setFrsScene(Scene frsScene) {
+//        HelloApplication.frsScene = frsScene;
+//    }
+    public static ArrayList<Integer> whereAmI=new ArrayList<>();
     @Override
     public void start(Stage stage) throws IOException {
+        Singer singer=new Singer("sadr","23fyi!komr10>","sadra b","email@ofs.ocm","09876543212",new Date(1990,10,22),"agha ye seda");
+        Music music=new Music(0,"title 1","sadr",12,11,new Date(1991,2,3),Genre.Country,"link","ad46dbb447cd0e9a6aeecd64cc2bd332b0cbcb79.jpeg","caption >>\n");
+        Database.getDatabase().getUsers().add(singer);
+        Database.getDatabase().getAudios().add(music);
+//        setStage(stage);
         Scene scene = null;
+        SuccesPopUp.setStage1(stage);
+        SetMainScene.setStage(stage);
         try {
-            scene = new Scene(SetMainScene.setScene(5));
-        }catch (IOException ioException){
-            System.out.println(ioException.getMessage());
-        }
-        stage.setTitle("Hello!");
-        stage.setScene(scene);
-        stage.show();
-        try {
-            showSuccessfulMessage(stage);
+            SetMainScene.setScene(9);
         }catch (Exception e){
-            System.out.println(e.getMessage());
+           System.out.println(e.getMessage());
         }
+//        try {
+//            scene = new Scene(SetMainScene.setScene(3));
+//        }catch (IOException ioException){
+//            System.out.println(ioException.getMessage());
+//        }
+//        stage.setTitle("Hello!");
+//        stage.setScene(scene);
+        stage.show();
+//        try {
+//            showSuccessfulMessage(stage);
+//        }catch (Exception e){
+//            System.out.println(e.getMessage());
+//        }
     }
-    public void showSuccessfulMessage(Stage stage1) {
-        Stage primaryStage= stage1;
-        // Create a new Popup
-        Popup popup = new Popup();
 
-        // Create a Pane to hold the content
-        Pane pane = new Pane();
-
-        // Create a Rectangle
-        Rectangle rectangle = new Rectangle(100,30);
-        rectangle.setFill(Color.LIGHTGREEN);
-        rectangle.setStroke(Color.BLACK);
-        rectangle.setStrokeWidth(2);
-
-        // Create a Label with the text
-
-
-        // Add the Rectangle and Label to the Pane
-
-
-        // Set the content of the Popup to the Pane
-        popup.getContent().add(pane);
-
-        // Calculate position for bottom left corner
-        double x = primaryStage.getX()+10; // Left edge
-        double y = primaryStage.getY()+600; // Bottom edge
-//
-////        // Set position of the Popup
-        Button button=new Button("Succesfull");
-        button.setStyle("-fx-background-color: green");
-        Label label = new Label("It is successful");
-        label.setLayoutX(x);
-        label.setLayoutY(y-600);
-        pane.getChildren().addAll(button);
-
-        popup.setX(x);
-        popup.setY(y);
-
-        // Show the Popup
-        popup.show(primaryStage);
-
-        // Create a Timeline to close the Popup after 3 seconds
-        Duration delay = Duration.seconds(3);
-        Timeline timeline = new Timeline(new KeyFrame(delay, event -> popup.hide()));
-        timeline.play();
-    }
     public static void main(String[] args) {
         launch();
     }
