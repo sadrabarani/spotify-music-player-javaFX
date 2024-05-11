@@ -3,6 +3,7 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
@@ -16,7 +17,7 @@ import java.io.IOException;
 
 public class IsLogin {
     private static IsLogin isLoginSingelton;
-    private static boolean isLogin;
+    private static boolean isLogin=false;
 
 
     public static IsLogin getIsLoginSingelton() {
@@ -34,17 +35,20 @@ public class IsLogin {
         return isLogin;
     }
 
-    public void notLogin() throws IOException {
-        //todo alert
-        SetMainScene.setScene(2);
+    public static void notLogin()  {
+        try {
+            Warning.warning("your not in your account", "please login or make new account !");
+            SetMainScene.setScene(2);
+        }catch (IOException io){
+            System.out.println(io.getMessage());
+        }
     }
-
 }
 
 class MyClass {
 
     public void showSuccessfulMessage(Stage primaryStage) {
-        primaryStage= HelloApplication.getStage();
+       // primaryStage= HelloApplication.getStage();
         // Create a new Popup
         Popup popup = new Popup();
 

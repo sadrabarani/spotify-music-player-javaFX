@@ -1,5 +1,7 @@
 package controller;
 
+import exeptions.FreeAccountLimitException;
+import exeptions.SameExistExption;
 import model.*;
 import model.Audio.Audio;
 import model.Audio.Music;
@@ -105,20 +107,21 @@ public class ListenerControler {
         return "logout successfull";
     }
 
-    public String makePlaylist(String playlistName) {
+    public Playlist makePlaylist(String playlistName) throws FreeAccountLimitException{
         for (Playlist playlist : listenerr.getPlaylists()) {
             if (playlist.getName().equals (playlistName)) {
-                return "this play list already exist.";
+                throw new SameExistExption("same play list name exist");
             }
         }
         if (!(listenerr instanceof PrimiumListener)) {
             if (listenerr.getPlaylistcounter() >= 3) {
-                return "you reached maximum limit .";
+                throw new FreeAccountLimitException();
             }
         }
         listenerr.setPlaylistcounter(listenerr.getPlaylistcounter(), 1);
-        listenerr.getPlaylists().add(new Playlist(generateIdPlaylist(), playlistName, listenerr.getFullName()));
-        return "play list added .";
+        Playlist playlist0=new Playlist(generateIdPlaylist(), playlistName, listenerr.getFullName());
+        listenerr.getPlaylists().add(playlist0);
+        return playlist0;
     }
 
     public boolean islogin(){
