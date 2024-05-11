@@ -18,7 +18,9 @@ public class HomeSortLikeListFxml implements Initializable {
     @FXML
     private ListView mostLikedList;
 
-    private int numberOfMostLiked=20;
+    private int numberOfMostLiked=1;
+    //todo change number
+    //todo add Audio to data base
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

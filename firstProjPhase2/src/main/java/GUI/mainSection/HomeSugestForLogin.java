@@ -17,7 +17,12 @@ public class HomeSugestForLogin implements Initializable {
 
     @FXML
     private ListView sugestList;
-    private int numberOfSugestion=10;
+
+    private int numberOfSugestion=0;
+
+    //todo change number
+    //todo add Audio to data base
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ArrayList<Audio> audioArrayList=ListenerControler.getListenerControler().suggestAudio(numberOfSugestion);

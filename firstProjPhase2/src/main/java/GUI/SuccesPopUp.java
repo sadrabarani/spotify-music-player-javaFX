@@ -12,8 +12,14 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 public class SuccesPopUp {
-    public static void showSuccessfulMessage(Stage stage1) {
-        Stage primaryStage= stage1;
+    private static Stage stage0;
+
+    public static void setStage1(Stage stage1) {
+        stage0 = stage1;
+    }
+
+    public static void showSuccessfulMessage() {
+        Stage primaryStage= stage0;
         Popup popup = new Popup();
         Pane pane = new Pane();
         popup.getContent().add(pane);
