@@ -1,6 +1,6 @@
 package exeptions;
 
-public class UserNotFoundException extends RuntimeException{
+public class UserNotFoundException extends FailedLoginException{
     public UserNotFoundException(String msg){
         super(msg);
     }
