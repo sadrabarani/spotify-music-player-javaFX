@@ -1,12 +1,18 @@
 package GUI.mainSection;
 
 import GUI.SetMainScene;
+import GUI.Warning;
 import controller.ListenerControler;
+import exeptions.FailedLoginException;
+import exeptions.InvalidFormatException;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import org.example.firstprojphase2.HelloApplication;
+
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.Date;
 import java.time.Instant;
@@ -84,20 +90,44 @@ public class Login implements Initializable {
 
     @FXML
     private TextField userNameTxt1;
-
+    int userType;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        listenerItem.setOnAction(e->{
+            userType=0;
+        });
+        listenerItem1.setOnAction(e->{
+            userType=0;
+        });
+        singerItem.setOnAction(e1->{
+            userType=1;
+        });
+        podcasterItem.setOnAction(e2->{
+            userType=2;
+        });
+        singerItem1.setOnAction(e1->{
+            userType=1;
+        });
+        podcasterItem1.setOnAction(e2->{
+            userType=2;
+        });
         loginBtn.setOnMouseClicked(e->{//todo exeption and controler
             if(menuBtn.getItems().contains(listenerItem) ){
                 if (userNameTxt.getText().isEmpty() || passField.getText().isEmpty()) {
-                    //todo exeption  Handle the case where any field is empty
-                    // You can show an error message or do something else
-                    return;
+                    Warning.warning("please compeletee every field .","Field is empty ");
+                }else{
+                    try {
+                        ListenerControler.getListenerControler().login(userNameTxt.getText(), passField.getText());
+                        HelloApplication.whereAmI=new ArrayList<>();
+                        SetMainScene.setScene(10);
+                    }catch (FailedLoginException | IOException e1){
+                        Warning.warning(String.valueOf(e1.getClass()), e1.getMessage());
+                    }
                 }
-                ListenerControler.getListenerControler().login(userNameTxt.getText(),passField.getText());
                 SetMainScene.setMainSection(10);
             }
         });
+
         backBtn.setOnMouseClicked(e->{
             try {
                 SetMainScene.setScene(9);
@@ -105,22 +135,30 @@ public class Login implements Initializable {
                 throw new RuntimeException(ex);
             }
         });
+
         signInBtn.setOnMouseClicked(e->{
             //todo if one of them is empty or wrong
             //todo controler edit and if it has error return eception
-            if(menuItems.getItems().contains(listenerItem)) {
+            if(userType==0) {
                 if (userNameTxt.getText().isEmpty() || passTxt.getText().isEmpty() || fulNameTxt.getText().isEmpty() ||
                         emailTxt.getText().isEmpty() || phoneNimberTxt.getText().isEmpty() || dateBirth.getValue() == null) {
-                    //todo  Handle the case where any field is empty
-                    // You can show an error message or do something else
-                    return;
+                    Warning.warning("please compelete every field .","Field is empty ");
+                }else{
+                    try {
+                        ListenerControler.getListenerControler().signUpListener(userNameTxt.getText(), passTxt.getText(), fulNameTxt.getText(), emailTxt.getText(), phoneNimberTxt.getText(), DateUtils.asDate(dateBirth.getValue()));
+                        HelloApplication.whereAmI=new ArrayList<>();
+                        SetMainScene.setScene(10);
+                    }catch (InvalidFormatException | IOException formatException){
+                        Warning.warning(String.valueOf(formatException.getClass()),formatException.getMessage());
+                    }
                 }
-                ListenerControler.getListenerControler().signUpListener(userNameTxt.getText(), passTxt.getText(), fulNameTxt.getText(), emailTxt.getText(), phoneNimberTxt.getText(), DateUtils.asDate(dateBirth.getValue()));
             }
         });
+
         backBtn.setOnMouseClicked(e->{
             try {
-                SetMainScene.setScene(9);
+                HelloApplication.whereAmI.remove(HelloApplication.whereAmI.size()-1);
+                SetMainScene.setScene(HelloApplication.whereAmI.get(HelloApplication.whereAmI.size()-1));
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }

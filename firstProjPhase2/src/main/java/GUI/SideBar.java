@@ -11,9 +11,11 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
 import model.Audio.Audio;
+import org.example.firstprojphase2.HelloApplication;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class SideBar implements Initializable {
@@ -56,6 +58,9 @@ public class SideBar implements Initializable {
     private Button libraryBtn;
 
     @FXML
+    private Button logInOutBtn;
+
+    @FXML
     private TextField searchField;
 
     @FXML
@@ -63,57 +68,79 @@ public class SideBar implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-//        searchField.setOnKeyPressed(e->{
-//            if(e.getCode()== KeyCode.ENTER){
-//                if(searchField!=null) {
-//                    SearchPage.setArrayList(ListenerControler.getListenerControler().searchByArtistName(searchField.getText()));
-//                    SearchPage.setAudioArrayList(ListenerControler.getListenerControler().searchByAudio(searchField.getText()));
-//                }
-//            }
-//        });
-//        libraryBtn.setOnMouseClicked(e->{
-//            if()//todo not login
-//            {
-//
-//            }
-//            else {
-//                try {
-//                    SetMainScene.setScene(1);
-//                } catch (IOException ex) {
-//                    throw new RuntimeException(ex);
-//                }
-//            }
-//        });
-//        homeBtn.setOnMouseClicked(e1->{
-//            if (){
-//                try {
-//                    SetMainScene.setScene(9);
-//                } catch (IOException ex) {
-//                    throw new RuntimeException(ex);
-//                }
-//            }//todo not login
-//            else //todo logined
-//            {
-//                try {
-//                    SetMainScene.setScene(10);
-//                } catch (IOException ex) {
-//                    throw new RuntimeException(ex);
-//                }
-//            }
-//        });
-//        audiosBtn.setOnMouseClicked(mouseEvent -> {
-//            try {
-//                SetMainScene.setScene(6);
-//            } catch (IOException e) {
-//                throw new RuntimeException(e);
-//            }
-//        });
-//        artistBtn.setOnMouseClicked(mouseEvent -> {
-//            try {
-//                SetMainScene.setScene(7);
-//            } catch (IOException e) {
-//                throw new RuntimeException(e);
-//            }
-//        });
+        homeBtn.setOnMouseClicked(e->{
+            if (IsLogin.isIsLogin()) {
+                try {
+                    SetMainScene.setScene(10);
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
+            }else{
+                try {
+                    SetMainScene.setScene(9);
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
+            }
+        });
+        searchField.setOnKeyPressed(e->{
+            if(e.getCode()== KeyCode.ENTER){
+                if(searchField!=null) {
+                    SearchPage.setArrayList(ListenerControler.getListenerControler().searchByArtistName(searchField.getText()));
+                    SearchPage.setAudioArrayList(ListenerControler.getListenerControler().searchByAudio(searchField.getText()));
+                    try {
+                        SetMainScene.setScene(12);
+                    } catch (IOException ex) {
+                        throw new RuntimeException(ex);
+                    }
+                }else{
+                    //todo if null
+                }
+            }
+        });
+        libraryBtn.setOnMouseClicked(e->{
+            if(!IsLogin.isIsLogin()){
+                IsLogin.notLogin();
+            }
+            else {
+                try {
+                    SetMainScene.setScene(1);
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
+            }
+        });
+        audiosBtn.setOnMouseClicked(mouseEvent -> {
+            try {
+                SetMainScene.setScene(6);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
+        artistBtn.setOnMouseClicked(mouseEvent -> {
+            try {
+                SetMainScene.setScene(7);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
+        logInOutBtn.setOnMouseClicked(e->{
+            if (IsLogin.isIsLogin()){
+                HelloApplication.whereAmI=new ArrayList<>();
+                IsLogin.setIsLogin(false);
+                ListenerControler.getListenerControler().logout();
+                try {
+                    SetMainScene.setScene(9);
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
+            }else{
+                try {
+                    SetMainScene.setScene(2);
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
+            }
+        });
     }
 }
