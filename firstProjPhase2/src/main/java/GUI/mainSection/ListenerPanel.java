@@ -1,7 +1,10 @@
 package GUI.mainSection;
 
 import GUI.SetMainScene;
+import GUI.Warning;
 import controller.ListenerControler;
+import exeptions.FreeAccountLimitException;
+import exeptions.SameExistExption;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -12,6 +15,8 @@ import model.SubscriptionPlan;
 import model.UserAccount.Artist;
 import model.UserAccount.Listener;
 import javafx.scene.control.TextField;
+import org.example.firstprojphase2.HelloApplication;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -111,27 +116,35 @@ public class ListenerPanel implements Initializable {
         addPlayList.setOnMouseClicked(e->{
             if(playlistNameTxt.getText()==null){
                 //todo eror
-            }else {
-                ListenerControler.getListenerControler().makePlaylist(playlistNameTxt.getText());
+            }else{
+                try {
+                    Playlist pl=ListenerControler.getListenerControler().makePlaylist(playlistNameTxt.getText());
+                    playListView.getItems().add(pl);
+                } catch (FreeAccountLimitException | SameExistExption ex) {
+                    Warning.warning(String.valueOf(ex.getClass()),ex.getMessage());
+                }
             }
         });
         backBtn.setOnMouseClicked(e->{
             try {
-                SetMainScene.setScene(10);
+                HelloApplication.whereAmI.remove(HelloApplication.whereAmI.size()-1);
+                SetMainScene.setScene(HelloApplication.whereAmI.get(HelloApplication.whereAmI.size()-1));
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }
         });
         backBtn1.setOnMouseClicked(e->{
             try {
-                SetMainScene.setScene(10);
+                HelloApplication.whereAmI.remove(HelloApplication.whereAmI.size()-1);
+                SetMainScene.setScene(HelloApplication.whereAmI.get(HelloApplication.whereAmI.size()-1));
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }
         });
         backBtn4.setOnMouseClicked(e->{
             try {
-                SetMainScene.setScene(10);
+                HelloApplication.whereAmI.remove(HelloApplication.whereAmI.size()-1);
+                SetMainScene.setScene(HelloApplication.whereAmI.get(HelloApplication.whereAmI.size()-1));
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }

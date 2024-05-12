@@ -1,7 +1,7 @@
 package controller;
 
-import exeptions.FreeAccountLimitException;
-import exeptions.SameExistExption;
+import GUI.IsLogin;
+import exeptions.*;
 import model.*;
 import model.Audio.Audio;
 import model.Audio.Music;
@@ -10,6 +10,8 @@ import model.Database.Database;
 import model.UserAccount.*;
 import model.Report;
 import model.Genre;
+import org.example.firstprojphase2.HelloApplication;
+
 import java.util.*;
 
 public class ListenerControler {
@@ -39,22 +41,23 @@ public class ListenerControler {
 
     public String signUpListener(String username, String pasword, String name, String email, String phoneNum, Date birthDate){
         if(!Regex.emailRegex(email))
-            return "use valid email";
+            throw new InvalidFormatException("use  valid email");
         if (!Regex.passwordRegex(pasword))
-            return "use harder password";
+           throw new InvalidFormatException(" use harder password with more than 8 character");
         if(!Regex.phoneRegex(phoneNum))
-            return "use valid phone number";
+            throw new InvalidFormatException("use valid phone number");
         ArrayList<User>users=Database.getDatabase().getUsers();
         for(User user:users){
             if(user.getUsername().equals(username)){
-                return "error : this user name already exist .";
+                throw new SameExistExption("user name already exist");
             }
         }
         listenerr=new Listener(username,pasword,name,email,phoneNum,birthDate,50);
         setListenerr(listenerr);
         Database.getDatabase().getUsers().add(listenerr);
         listenerr.setIsLogin(true);
-        return showgenre()+"\n";
+        IsLogin.setIsLogin(true);
+        return "sign uped";
     }
     String showgenre(){
         return Genre.Country+","+Genre.Pop+","+Genre.HipHop+","+Genre.History+","+Genre.Interview+","+Genre.Jazz+","+Genre.TrueCrime+","+Genre.Society+","+Genre.Rock;
@@ -87,18 +90,23 @@ public class ListenerControler {
         chooseFavoriteGenre(genre1,"","","");
     }
 
-    public String login(String username,String password){
+    public String login(String username,String password) throws UserNotFoundException {
         ArrayList<User>users=Database.getDatabase().getUsers();
+        int counter=0;
+        for(User user:users) {
+            if (user.getUsername().equals(username))
+                break;
+            counter++;
+        }
+        if (counter==users.size())
+            throw new UserNotFoundException();
         for(User user:users){
             if(user.getUsername().equals(username) && user.getPassword().equals(password)){
-                if(listenerr.getIsLogin()==true)
-                    return "you are in already in your profile .";
-                setListenerr((Listener) user);
-                listenerr.setIsLogin(true);
+                IsLogin.setIsLogin(true);
                 return "login successful .";
             }
         }
-        return "error : user name or password is wrong";
+        throw new WrongPaswordException();
     }
 
     public String logout(){
