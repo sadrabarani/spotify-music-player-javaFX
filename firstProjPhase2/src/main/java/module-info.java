@@ -11,6 +11,7 @@ module org.example.firstprojphase2 {
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
     requires javafx.media;
+    requires annotations;
 
     opens org.example.firstprojphase2 to javafx.fxml;
     exports org.example.firstprojphase2;
@@ -20,4 +21,6 @@ module org.example.firstprojphase2 {
     opens GUI.mainSection to javafx.fxml;
     exports model.UserAccount;
     opens model.UserAccount to javafx.fxml;
+    exports controller;
+    opens controller to javafx.fxml;
 }

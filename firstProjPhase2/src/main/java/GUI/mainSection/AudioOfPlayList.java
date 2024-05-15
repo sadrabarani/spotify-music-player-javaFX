@@ -42,11 +42,11 @@ public class AudioOfPlayList implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        for(Audio audio:playlist.getAudios()){
-            listAudiosPlayList.getItems().add(audio);
+        for(Object audio:playlist){
+            listAudiosPlayList.getItems().add((Audio) audio);
             listAudiosPlayList.setOnMouseClicked(e->{
-                PlayMusic.audio=audio;
-                PlayBar.setAudio(audio);
+                PlayMusic.audio= (Audio) audio;
+                PlayBar.setAudio((Audio) audio);
                 HelloApplication.whereAmI.add(4);
                 SetMainScene.setMainSection(4);
             });
