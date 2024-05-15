@@ -63,7 +63,7 @@ public class HelloApplication extends Application {
 //        }catch (IOException ioException){
 //            System.out.println(ioException.getMessage());
 //        }
-//        stage.setTitle("Hello!");
+        stage.setTitle("music player");
 //        stage.setScene(scene);
         stage.show();
 

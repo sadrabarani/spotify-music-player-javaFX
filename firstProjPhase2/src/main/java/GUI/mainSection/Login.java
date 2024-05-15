@@ -1,5 +1,6 @@
 package GUI.mainSection;
 
+import GUI.IsLogin;
 import GUI.SetMainScene;
 import GUI.Warning;
 import controller.ListenerControler;
@@ -120,6 +121,7 @@ public class Login implements Initializable {
                         ListenerControler.getListenerControler().login(userNameTxt.getText(), passField.getText());
                         HelloApplication.whereAmI=new ArrayList<>();
                         HelloApplication.whereAmI.add(10);
+                        IsLogin.setIsLogin(true);
                         SetMainScene.setScene(10);
                     }catch (FailedLoginException | IOException e1){
                         Warning.warning(String.valueOf(e1.getClass()), e1.getMessage());
@@ -150,6 +152,7 @@ public class Login implements Initializable {
                     try {
                         ListenerControler.getListenerControler().signUpListener(userNameTxt.getText(), passTxt.getText(), fulNameTxt.getText(), emailTxt.getText(), phoneNimberTxt.getText(), DateUtils.asDate(dateBirth.getValue()));
                         HelloApplication.whereAmI=new ArrayList<>();
+                        IsLogin.setIsLogin(true);
                         HelloApplication.whereAmI.add(10);
                         SetMainScene.setScene(10);
                     }catch (InvalidFormatException | IOException formatException){
