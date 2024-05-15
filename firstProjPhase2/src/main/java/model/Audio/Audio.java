@@ -2,7 +2,7 @@ package model.Audio;
 import model.Genre;
 
 import java.util.Date;
-public abstract class Audio {
+public abstract class Audio implements Comparable<Audio>{
     private int id;
     private String title;
     private String artistName;
@@ -112,5 +112,26 @@ public abstract class Audio {
 
     public void setCover(String cover) {
         this.cover = cover;
+    }
+
+    @Override
+    public int compareTo(Audio audio2) {
+        int titleComprator= (this.getTitle().compareTo( audio2.getTitle()));
+        if (titleComprator!=0){
+            return titleComprator;
+        }
+        if (this.getLikes()-audio2.getLikes()!=0){
+            return this.getLikes()-audio2.getLikes();
+        }
+        if (audio2 instanceof Podcast && this instanceof Music){
+            return 1;
+        }
+        if (this instanceof Podcast && audio2 instanceof Music){
+            return -1;
+        }
+        if (this.getPlayCount()-audio2.getPlayCount()!=0){
+            return this.getPlayCount()-audio2.getPlayCount();
+        }
+        return 0;
     }
 }
