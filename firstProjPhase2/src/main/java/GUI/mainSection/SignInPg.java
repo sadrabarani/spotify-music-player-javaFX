@@ -5,6 +5,7 @@ import controller.ListenerControler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import org.example.firstprojphase2.HelloApplication;
 
 import java.util.Date;
 import java.io.IOException;
@@ -72,6 +73,7 @@ public class SignInPg implements Initializable {
         });
         backBtn.setOnMouseClicked(e->{
             try {
+                HelloApplication.whereAmI.add(9);
                 SetMainScene.setScene(9);
             } catch (IOException ex) {
                 throw new RuntimeException(ex);

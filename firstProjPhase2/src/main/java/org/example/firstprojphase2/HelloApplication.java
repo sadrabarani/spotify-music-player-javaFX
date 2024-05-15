@@ -2,6 +2,7 @@ package org.example.firstprojphase2;
 
 import GUI.SetMainScene;
 import GUI.SuccesPopUp;
+import GUI.Warning;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Application;
@@ -39,7 +40,8 @@ public class HelloApplication extends Application {
 //    public static void setFrsScene(Scene frsScene) {
 //        HelloApplication.frsScene = frsScene;
 //    }
-    public static ArrayList<Integer> whereAmI=new ArrayList<>();
+
+        public static ArrayList<Integer> whereAmI=new ArrayList<>();
     @Override
     public void start(Stage stage) throws IOException {
         Singer singer=new Singer("sadr","23fyi!komr10>","sadra b","email@ofs.ocm","09876543212",new Date(1990,10,22),"agha ye seda");
@@ -51,6 +53,7 @@ public class HelloApplication extends Application {
         SuccesPopUp.setStage1(stage);
         SetMainScene.setStage(stage);
         try {
+            HelloApplication.whereAmI.add(9);
             SetMainScene.setScene(9);
         }catch (Exception e){
            System.out.println(e.getMessage());
@@ -63,6 +66,11 @@ public class HelloApplication extends Application {
 //        stage.setTitle("Hello!");
 //        stage.setScene(scene);
         stage.show();
+
+        stage.setOnCloseRequest(e->{
+            Warning.warning("have a good day","finished");
+        });
+        //todo fix back
 //        try {
 //            showSuccessfulMessage(stage);
 //        }catch (Exception e){

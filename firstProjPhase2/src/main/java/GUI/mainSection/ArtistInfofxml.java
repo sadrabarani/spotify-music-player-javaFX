@@ -15,6 +15,7 @@ import model.Audio.Audio;
 import model.UserAccount.Artist;
 import model.UserAccount.Podcaster;
 import model.UserAccount.Singer;
+import org.example.firstprojphase2.HelloApplication;
 
 import java.io.IOException;
 import java.net.URL;
@@ -73,12 +74,14 @@ public class ArtistInfofxml implements Initializable {
         backBtn.setOnMouseClicked(e->{
             if (IsLogin.isIsLogin()){
                 try {
+                    HelloApplication.whereAmI.add(10);
                     SetMainScene.setScene(10);
                 } catch (IOException ex) {
                     throw new RuntimeException(ex);
                 }
             }else{
                 try {
+                    HelloApplication.whereAmI.add(9);
                     SetMainScene.setScene(9);
                 } catch (IOException ex) {
                     throw new RuntimeException(ex);
@@ -92,6 +95,7 @@ public class ArtistInfofxml implements Initializable {
                     PlayMusic.audio=audio;
                     PlayBar.setAudio(audio);
                     try {
+                        HelloApplication.whereAmI.add(4);
                         SetMainScene.setScene(4);
                     } catch (IOException ex) {
                         throw new RuntimeException(ex);
@@ -105,6 +109,7 @@ public class ArtistInfofxml implements Initializable {
                     PlayMusic.audio=audio;
                     PlayBar.setAudio(audio);
                     try {
+                        HelloApplication.whereAmI.add(4);
                         SetMainScene.setScene(4);
                     } catch (IOException ex) {
                         throw new RuntimeException(ex);

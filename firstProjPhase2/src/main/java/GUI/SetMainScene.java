@@ -67,7 +67,7 @@ public class SetMainScene {
     }
     public static Stage stage11;
     public static Parent setScene(int secNum) throws IOException {
-        HelloApplication.whereAmI.add(secNum);
+//        HelloApplication.whereAmI.add(secNum);
         FXMLLoader fxmlLoader= SetMainScene.setMainSection(secNum);
         FXMLLoader sideFxml=new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
         FXMLLoader playBarFxml=new FXMLLoader(HelloApplication.class.getResource("play_bar.fxml"));

@@ -38,6 +38,7 @@ public class IsLogin {
     public static void notLogin()  {
         try {
             Warning.warning("your not in your account", "please login or make new account !");
+            HelloApplication.whereAmI.add(2);
             SetMainScene.setScene(2);
         }catch (IOException io){
             System.out.println(io.getMessage());

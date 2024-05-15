@@ -9,6 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import model.Audio.Audio;
 import model.Playlist;
+import org.example.firstprojphase2.HelloApplication;
 
 import java.io.IOException;
 import java.net.URL;
@@ -46,18 +47,21 @@ public class AudioOfPlayList implements Initializable {
             listAudiosPlayList.setOnMouseClicked(e->{
                 PlayMusic.audio=audio;
                 PlayBar.setAudio(audio);
+                HelloApplication.whereAmI.add(4);
                 SetMainScene.setMainSection(4);
             });
         }
         backBtn.setOnMouseClicked( e-> {
             if (IsLogin.isIsLogin()) {
                 try {
+                    HelloApplication.whereAmI.add(10);
                     SetMainScene.setScene(10);
                 } catch (IOException ex) {
                     throw new RuntimeException(ex);
                 }
             } else {
                 try {
+                    HelloApplication.whereAmI.add(9);
                     SetMainScene.setScene(9);
                 } catch (IOException ex) {
                     throw new RuntimeException(ex);
