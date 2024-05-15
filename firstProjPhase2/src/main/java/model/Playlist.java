@@ -1,10 +1,12 @@
 package model;
 
 import model.Audio.Audio;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
-public class Playlist {
+public class Playlist implements Iterable{
     private int id;
     private String name;
     private String creatorUsername;
@@ -65,5 +67,24 @@ public class Playlist {
 
     public void setAudios(ArrayList<Audio> audios) {
         this.audios = audios;
+    }
+
+    private int currentIndex = 0;
+    private int elementsReturned = 0;
+    @Override
+    public Iterator iterator(){
+        return new Iterator() {
+            @Override
+            public boolean hasNext() {
+                return elementsReturned < audios.size();
+            }
+            @Override
+            public Audio next() {
+                Audio element =audios.get(currentIndex);
+                currentIndex = (currentIndex + 1) ;
+                elementsReturned++;
+                return element;
+            }
+        };
     }
 }
