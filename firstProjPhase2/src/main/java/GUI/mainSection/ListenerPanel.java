@@ -101,6 +101,7 @@ public class ListenerPanel implements Initializable {
             folowingsListView1.setOnMouseClicked(e->{
                 ArtistInfofxml.artist=artist;
                 try {
+                    HelloApplication.whereAmI.add(8);
                     SetMainScene.setScene(8);
                 } catch (IOException ex) {
                     throw new RuntimeException(ex);

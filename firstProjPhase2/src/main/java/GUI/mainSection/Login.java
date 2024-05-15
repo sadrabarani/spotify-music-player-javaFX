@@ -119,17 +119,20 @@ public class Login implements Initializable {
                     try {
                         ListenerControler.getListenerControler().login(userNameTxt.getText(), passField.getText());
                         HelloApplication.whereAmI=new ArrayList<>();
+                        HelloApplication.whereAmI.add(10);
                         SetMainScene.setScene(10);
                     }catch (FailedLoginException | IOException e1){
                         Warning.warning(String.valueOf(e1.getClass()), e1.getMessage());
                     }
                 }
+                HelloApplication.whereAmI.add(10);
                 SetMainScene.setMainSection(10);
             }
         });
 
         backBtn.setOnMouseClicked(e->{
             try {
+                HelloApplication.whereAmI.add(9);
                 SetMainScene.setScene(9);
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
@@ -147,6 +150,7 @@ public class Login implements Initializable {
                     try {
                         ListenerControler.getListenerControler().signUpListener(userNameTxt.getText(), passTxt.getText(), fulNameTxt.getText(), emailTxt.getText(), phoneNimberTxt.getText(), DateUtils.asDate(dateBirth.getValue()));
                         HelloApplication.whereAmI=new ArrayList<>();
+                        HelloApplication.whereAmI.add(10);
                         SetMainScene.setScene(10);
                     }catch (InvalidFormatException | IOException formatException){
                         Warning.warning(String.valueOf(formatException.getClass()),formatException.getMessage());

@@ -3,6 +3,7 @@ import GUI.IsLogin;
 import GUI.PlayBar;
 import GUI.SetMainScene;
 import controller.ListenerControler;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -28,6 +29,15 @@ public class AllAudiosFxml implements Initializable {
 
     ArrayList<Audio> audioArrayList=new ArrayList<>();
 
+    @FXML
+    void back_event(ActionEvent event) {
+        HelloApplication.whereAmI.remove(HelloApplication.whereAmI.size()-1);
+        try {
+            SetMainScene.setScene(HelloApplication.whereAmI.get(HelloApplication.whereAmI.size()-1));
+        } catch (IOException ex) {
+            throw new RuntimeException(ex);
+        }
+    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         audioArrayList= Database.getDatabase().getAudios();
@@ -37,6 +47,7 @@ public class AllAudiosFxml implements Initializable {
                 PlayBar.setAudio(audio);
             allAudiosList.setOnMouseClicked(e->{
                 try {
+                    HelloApplication.whereAmI.add(4);
                     SetMainScene.setScene(4);
                 } catch (IOException ex) {
                     throw new RuntimeException(ex);
@@ -55,16 +66,15 @@ public class AllAudiosFxml implements Initializable {
 //                }
 //            });
 //        }
-        backBtn.setOnMouseClicked(e->{
-            HelloApplication.whereAmI.remove(HelloApplication.whereAmI.size()-1);
-            try {
-                SetMainScene.setScene(HelloApplication.whereAmI.get(HelloApplication.whereAmI.size()-1));
-            } catch (IOException ex) {
-                throw new RuntimeException(ex);
-            }
-        });
+//        backBtn.setOnMouseClicked(e->{
+//            HelloApplication.whereAmI.remove(HelloApplication.whereAmI.size()-1);
+//            System.out.println(HelloApplication.whereAmI);
+//            try {
+//                SetMainScene.setScene(HelloApplication.whereAmI.get(HelloApplication.whereAmI.size()-1));
+//            } catch (IOException ex) {
+//                throw new RuntimeException(ex);
+//            }
+//        });
     }
-
-
 }
 

@@ -34,6 +34,7 @@ public class AllArtistsFxml implements Initializable {
             allArtistsList.setOnMouseClicked(e->{
                 ArtistInfofxml.artist=artist;
                 SuccesPopUp.showSuccessfulMessage();
+                HelloApplication.whereAmI.add(8);
                 SetMainScene.setMainSection(8);
             });
         }

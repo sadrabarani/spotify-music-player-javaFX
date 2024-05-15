@@ -71,12 +71,14 @@ public class SideBar implements Initializable {
         homeBtn.setOnMouseClicked(e->{
             if (IsLogin.isIsLogin()) {
                 try {
+                    HelloApplication.whereAmI.add(10);
                     SetMainScene.setScene(10);
                 } catch (IOException ex) {
                     throw new RuntimeException(ex);
                 }
             }else{
                 try {
+                    HelloApplication.whereAmI.add(9);
                     SetMainScene.setScene(9);
                 } catch (IOException ex) {
                     throw new RuntimeException(ex);
@@ -89,6 +91,7 @@ public class SideBar implements Initializable {
                     SearchPage.setArrayList(ListenerControler.getListenerControler().searchByArtistName(searchField.getText()));
                     SearchPage.setAudioArrayList(ListenerControler.getListenerControler().searchByAudio(searchField.getText()));
                     try {
+                        HelloApplication.whereAmI.add(12);
                         SetMainScene.setScene(12);
                     } catch (IOException ex) {
                         throw new RuntimeException(ex);
@@ -104,6 +107,7 @@ public class SideBar implements Initializable {
             }
             else {
                 try {
+                    HelloApplication.whereAmI.add(1);
                     SetMainScene.setScene(1);
                 } catch (IOException ex) {
                     throw new RuntimeException(ex);
@@ -112,6 +116,7 @@ public class SideBar implements Initializable {
         });
         audiosBtn.setOnMouseClicked(mouseEvent -> {
             try {
+                HelloApplication.whereAmI.add(6);
                 SetMainScene.setScene(6);
             } catch (IOException e) {
                 throw new RuntimeException(e);
@@ -119,6 +124,7 @@ public class SideBar implements Initializable {
         });
         artistBtn.setOnMouseClicked(mouseEvent -> {
             try {
+                HelloApplication.whereAmI.add(7);
                 SetMainScene.setScene(7);
             } catch (IOException e) {
                 throw new RuntimeException(e);
@@ -130,12 +136,14 @@ public class SideBar implements Initializable {
                 IsLogin.setIsLogin(false);
                 ListenerControler.getListenerControler().logout();
                 try {
+                    HelloApplication.whereAmI.add(9);
                     SetMainScene.setScene(9);
                 } catch (IOException ex) {
                     throw new RuntimeException(ex);
                 }
             }else{
                 try {
+                    HelloApplication.whereAmI.add(2);
                     SetMainScene.setScene(2);
                 } catch (IOException ex) {
                     throw new RuntimeException(ex);

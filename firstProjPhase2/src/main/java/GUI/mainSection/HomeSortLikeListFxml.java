@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
 import model.Audio.Audio;
+import org.example.firstprojphase2.HelloApplication;
 
 import java.io.IOException;
 import java.net.URL;
@@ -31,6 +32,7 @@ public class HomeSortLikeListFxml implements Initializable {
             PlayMusic.audio=audioArrayList.get(i);
             mostLikedList.setOnMouseClicked(e->{
                 try {
+                    HelloApplication.whereAmI.add(4);
                     SetMainScene.setScene(4);
                 } catch (IOException ex) {
                     throw new RuntimeException(ex);

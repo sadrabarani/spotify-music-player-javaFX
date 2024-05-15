@@ -1,14 +1,17 @@
 package GUI.mainSection;
 
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import model.Audio.Audio;
 import model.UserAccount.Artist;
 
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 
-public class SearchPage {
+public class SearchPage implements Initializable {
     private static ArrayList<Audio> audioArrayList=new ArrayList<>();
     private static ArrayList<Artist> artists=new ArrayList<>();
 
@@ -37,4 +40,8 @@ public class SearchPage {
     @FXML
     private Button backBtn;
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+    }
 }
