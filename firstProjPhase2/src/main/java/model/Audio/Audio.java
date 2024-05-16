@@ -117,20 +117,20 @@ public abstract class Audio implements Comparable<Audio>{
     @Override
     public int compareTo(Audio audio2) {
         int titleComprator= (this.getTitle().compareTo( audio2.getTitle()));
-        if (titleComprator!=0){
-            return titleComprator;
-        }
         if (this.getLikes()-audio2.getLikes()!=0){
             return this.getLikes()-audio2.getLikes();
+        }
+        if (this.getPlayCount()-audio2.getPlayCount()!=0){
+            return this.getPlayCount()-audio2.getPlayCount();
+        }
+        if (titleComprator!=0){
+            return titleComprator;
         }
         if (audio2 instanceof Podcast && this instanceof Music){
             return 1;
         }
         if (this instanceof Podcast && audio2 instanceof Music){
             return -1;
-        }
-        if (this.getPlayCount()-audio2.getPlayCount()!=0){
-            return this.getPlayCount()-audio2.getPlayCount();
         }
         return 0;
     }

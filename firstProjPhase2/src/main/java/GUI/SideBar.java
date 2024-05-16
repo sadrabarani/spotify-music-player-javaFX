@@ -2,6 +2,7 @@ package GUI;
 
 import GUI.mainSection.PlayMusic;
 import GUI.mainSection.SearchPage;
+import controller.GeneralOperation;
 import controller.ListenerControler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -18,7 +19,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class SideBar implements Initializable {
+public class SideBar implements Initializable , GeneralOperation {
     private Audio audio=null;
     SideBar sideBar;
     public void setAudio(Audio audio) {
@@ -87,17 +88,11 @@ public class SideBar implements Initializable {
         });
         searchField.setOnKeyPressed(e->{
             if(e.getCode()== KeyCode.ENTER){
-                if(searchField!=null) {
-                    SearchPage.setArrayList(ListenerControler.getListenerControler().searchByArtistName(searchField.getText()));
-                    SearchPage.setAudioArrayList(ListenerControler.getListenerControler().searchByAudio(searchField.getText()));
-                    try {
-                        HelloApplication.whereAmI.add(12);
-                        SetMainScene.setScene(12);
-                    } catch (IOException ex) {
-                        throw new RuntimeException(ex);
-                    }
+                if(!searchField.getText().isEmpty()) {
+                    System.out.println(searchField.getText());
+                    search(searchField.getText());
                 }else{
-                    //todo if null
+                    Warning.warning("write somthing to search","null text");
                 }
             }
         });
@@ -133,7 +128,7 @@ public class SideBar implements Initializable {
         logInOutBtn.setOnMouseClicked(e->{
             if (IsLogin.isIsLogin()){
                 HelloApplication.whereAmI=new ArrayList<>();
-                IsLogin.setIsLogin(false);
+                logout();
                 ListenerControler.getListenerControler().logout();
                 try {
                     HelloApplication.whereAmI.add(9);

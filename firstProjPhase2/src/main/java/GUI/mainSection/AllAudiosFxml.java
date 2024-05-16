@@ -40,7 +40,7 @@ public class AllAudiosFxml implements Initializable {
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        audioArrayList= Database.getDatabase().getAudios();
+        audioArrayList= ListenerControler.getListenerControler().sortLikes();
         for(Audio audio:audioArrayList){
             allAudiosList.getItems().add(audio);
             PlayMusic.audio=audio;
