@@ -67,9 +67,9 @@ public class HelloApplication extends Application {
 //        stage.setScene(scene);
         stage.show();
 
-        stage.setOnCloseRequest(e->{
-            Warning.warning("have a good day","finished");
-        });
+//        stage.setOnCloseRequest(e->{
+//            Warning.warning("have a good day","finished");
+//        });
         //todo fix back
 //        try {
 //            showSuccessfulMessage(stage);

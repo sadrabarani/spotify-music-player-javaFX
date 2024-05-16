@@ -356,7 +356,7 @@ public class ListenerControler {
         Audio tmpAudio;
         for (int i = 0; i < audioArrayList.size()-1; i++) {
             for (int j = 0; j < audioArrayList.size()-1-i; j++) {
-                if(audioArrayList.get(j).getLikes()<audioArrayList.get(j+1).getLikes()){
+                if(audioArrayList.get(j).compareTo(audioArrayList.get(j+1))>0){
                     tmpAudio=audioArrayList.get(j);
                     audioArrayList.set(j,audioArrayList.get(j+1));
                     audioArrayList.set(j+1,tmpAudio);

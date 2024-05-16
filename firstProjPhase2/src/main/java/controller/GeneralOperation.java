@@ -23,15 +23,11 @@ public interface GeneralOperation {
         IsLogin.setIsLogin(true);
         SetMainScene.setScene(10);
     }
-    default void signup(){
+    default void signup() throws IOException {
         HelloApplication.whereAmI=new ArrayList<>();
         HelloApplication.whereAmI.add(10);
         IsLogin.setIsLogin(true);
-        try {
-            SetMainScene.setScene(10);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        SetMainScene.setScene(10);
     }
     default void search(String str){
         SearchPage.setArrayList(ListenerControler.getListenerControler().searchByArtistName(str));
