@@ -1,5 +1,7 @@
 package controller;
 
+import exeptions.InvalidFormatException;
+import exeptions.SameExistExption;
 import model.Album;
 import model.Audio.Audio;
 import model.Audio.Music;
@@ -61,17 +63,17 @@ public class ArtistControler {
         this.artist = artist;
     }
 
-    public String signUpArtist(String username, String pasword, String name, String email, String phoneNum, Date birthDate,String bio,String type){
+    public void signUpArtist(String username, String pasword, String name, String email, String phoneNum, Date birthDate,String bio,String type){
         if(!Regex.emailRegex(email))
-            return "use valid email";
+            throw new InvalidFormatException( "use valid email");
         if (!Regex.passwordRegex(pasword))
-            return "use harder password";
+            throw new InvalidFormatException( "use harder password");
         if(!Regex.phoneRegex(phoneNum))
-            return "use valid phone number";
+            throw new InvalidFormatException( "use valid phone number");
         ArrayList<User> users= Database.getDatabase().getUsers();
         for(User user:users){
             if(user.getUsername().equals(username)){
-                return "error : this user name already exist .";
+                throw new SameExistExption( "error : this user name already exist .");
             }
         }
         if(type.equals("S")) {
@@ -82,7 +84,6 @@ public class ArtistControler {
             setArtist(artistt);
         }
         Database.getDatabase().getUsers().add(artist);
-        return  "artist accaount successfully created .";
     }
     public String login(String username,String password){
         ArrayList<User>users=Database.getDatabase().getUsers();

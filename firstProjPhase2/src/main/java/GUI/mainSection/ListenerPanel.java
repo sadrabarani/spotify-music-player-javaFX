@@ -4,6 +4,7 @@ import GUI.SetMainScene;
 import GUI.Warning;
 import controller.ListenerControler;
 import exeptions.FreeAccountLimitException;
+import exeptions.LowCreditExeption;
 import exeptions.SameExistExption;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -85,15 +86,27 @@ public class ListenerPanel implements Initializable {
         userlbl.setText("user name : "+listener.getUsername());
         emaillbl.setText("email :"+ listener.getEmail());
         twoMonSubBtn.setOnMouseClicked(e->{
-            ListenerControler.getListenerControler().buySub(SubscriptionPlan.TwoMonth); //todo eror or succes
+            try {
+                ListenerControler.getListenerControler().buySub(SubscriptionPlan.TwoMonth);
+            }catch (LowCreditExeption lowCreditExeption){
+                Warning.warning(String.valueOf(lowCreditExeption.getClass()),lowCreditExeption.getMessage());
+            }
             creditLbl.setText("credit : "+String.valueOf(ListenerControler.getListenerControler().getListenerr().getCredit())+"$ ");
         });
         sixMonSubBtn.setOnMouseClicked(e->{
-            ListenerControler.getListenerControler().buySub(SubscriptionPlan.SixMonth); //todo eror or succes
+            try {
+                ListenerControler.getListenerControler().buySub(SubscriptionPlan.SixMonth);
+            }catch (LowCreditExeption lowCreditExeption) {
+                Warning.warning(String.valueOf(lowCreditExeption.getClass()), lowCreditExeption.getMessage());
+            }
             creditLbl.setText("credit : "+String.valueOf(ListenerControler.getListenerControler().getListenerr().getCredit())+"$ ");
         });
         oneMonSubBtn.setOnMouseClicked(e->{
-            ListenerControler.getListenerControler().buySub(SubscriptionPlan.OneMonth); //todo eror or succes
+            try {
+                ListenerControler.getListenerControler().buySub(SubscriptionPlan.OneMonth);
+            }catch (LowCreditExeption lowCreditExeption){
+                Warning.warning(String.valueOf(lowCreditExeption.getClass()),lowCreditExeption.getMessage());
+            }
             creditLbl.setText("credit : "+String.valueOf(ListenerControler.getListenerControler().getListenerr().getCredit())+"$ ");
         });
         for(Artist artist:listener.getFollowings()){
@@ -116,7 +129,7 @@ public class ListenerPanel implements Initializable {
         }
         addPlayList.setOnMouseClicked(e->{
             if(playlistNameTxt.getText()==null){
-                //todo eror
+                Warning.warning("please compeletee play list name field .","Field is empty ");
             }else{
                 try {
                     Playlist pl=ListenerControler.getListenerControler().makePlaylist(playlistNameTxt.getText());
