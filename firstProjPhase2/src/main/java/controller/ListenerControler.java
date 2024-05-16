@@ -140,29 +140,27 @@ public class ListenerControler {
         return listenerr.getPlaylistcounter()+ Playlist.getIdcounter();
     }
 
-    public String AddAudio(String playListname,int auidioId) {
-
+    public void AddAudio(String playListname,int auidioId) throws FreeAccountLimitException, NotFoundExeption {
         int tmpInd=0;
         for (Playlist playlist : listenerr.getPlaylists()) {
             if (playlist.getName().equals(playListname)) {
                 if (listenerr instanceof RegularListener) {
                     if (playlist.getAudios().size() >= ((RegularListener) listenerr).getAddLimit()) {
-                        return "maximum add is 10.";
+                        throw new FreeAccountLimitException("maximum add is 10.");
                     }
                 }
                 for (Audio audio : Database.getDatabase().getAudios()) {
                     if (audio.getId() == auidioId) {
                     if(playlist.getAudios().contains(audio)){
-                        return "its already added";
+                        throw new SameExistExption( "its already added");
                     }
                         listenerr.getPlaylists().get(tmpInd).getAudios().add(audio);
-                        return "audio successfully added . ";
                     }
                 }
             }
             tmpInd++;
         }
-        return "error: no match for audio id or play list name .";
+        throw new NotFoundExeption();
     }
     public String playAudio(int audioId){
         for (Audio audio:Database.getDatabase().getAudios()){
@@ -387,9 +385,9 @@ public class ListenerControler {
         listenerr.setCredit(listenerr.getCredit()+increaseAmount);
         return "increased";
     }
-    public String buySub(SubscriptionPlan subscriptionPlan){
+    public void buySub(SubscriptionPlan subscriptionPlan){
         if(subscriptionPlan.getPrice()>listenerr.getCredit()){
-            return "not enough credit . ";
+            throw new LowCreditExeption("not enough credit . ");
         }
         listenerr.setCredit(listenerr.getCredit()-subscriptionPlan.getPrice());
         String str=listenerr.getEndSubDate().toString();
@@ -434,7 +432,6 @@ public class ListenerControler {
                 listenerr.setEndSubDate(calendar.getTime());
             }
         }
-        return "befor :"+str+", now :"+listenerr.getEndSubDate().toString();
     }
 
     public ArrayList<Audio> suggestAudio(int n){

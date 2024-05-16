@@ -2,7 +2,10 @@ package GUI.mainSection;
 
 import GUI.IsLogin;
 import GUI.SetMainScene;
+import GUI.Warning;
 import controller.ListenerControler;
+import exeptions.FreeAccountLimitException;
+import exeptions.NotFoundExeption;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -76,7 +79,13 @@ public class PlayMusic implements Initializable {
                 for (Playlist playlist : ListenerControler.getListenerControler().getListenerr().getPlaylists()) {
                     MenuItem menuItem = new MenuItem(playlist.getName());
                     menuItem.setOnAction(e -> {
-                        ListenerControler.getListenerControler().AddAudio(playlist.getName(), audio.getId());
+                        try {
+                            ListenerControler.getListenerControler().AddAudio(playlist.getName(), audio.getId());
+                        } catch (FreeAccountLimitException ex) {
+                            Warning.warning(String.valueOf(ex.getClass()),ex.getMessage());
+                        } catch (NotFoundExeption ex) {
+                            Warning.warning(String.valueOf(ex.getClass()),ex.getMessage());
+                        }
                     });
                     addPlayList.getItems().add(menuItem);
                 }
