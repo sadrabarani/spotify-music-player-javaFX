@@ -22,47 +22,47 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <CheckBox fx:id="trueCrime" mnemonicParsing="false" prefHeight="70.0" prefWidth="170.0" style="-fx-background-color: Blue;" text="TrueCrime" GridPane.columnIndex="2" GridPane.rowIndex="1">
+            <CheckBox fx:id="trueCrime" mnemonicParsing="false" onAction="#trueOnaction" prefHeight="70.0" prefWidth="170.0" style="-fx-background-color: Blue;" text="TrueCrime" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <font>
                   <Font size="25.0" />
                </font>
             </CheckBox>
-            <CheckBox fx:id="hiphop" layoutX="10.0" layoutY="41.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="166.0" style="-fx-background-color: Green;" text="Hip Hop" GridPane.columnIndex="2">
+            <CheckBox fx:id="hiphop" layoutX="10.0" layoutY="41.0" mnemonicParsing="false" onAction="#hipHipOnAct" prefHeight="70.0" prefWidth="166.0" style="-fx-background-color: Green;" text="Hip Hop" GridPane.columnIndex="2">
                <font>
                   <Font size="29.0" />
                </font>
             </CheckBox>
-            <CheckBox fx:id="history" layoutX="211.0" layoutY="41.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="166.0" style="-fx-background-color: Yellow;" text="History" GridPane.columnIndex="1">
+            <CheckBox fx:id="history" layoutX="211.0" layoutY="41.0" mnemonicParsing="false" onAction="#historyOnAct" prefHeight="70.0" prefWidth="166.0" style="-fx-background-color: Yellow;" text="History" GridPane.columnIndex="1">
                <font>
                   <Font size="29.0" />
                </font>
             </CheckBox>
-            <CheckBox fx:id="interview" layoutX="10.0" layoutY="41.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="176.0" text="Interview" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <CheckBox fx:id="interview" layoutX="10.0" layoutY="41.0" mnemonicParsing="false" onAction="#interviewOnAct" prefHeight="70.0" prefWidth="176.0" style="-fx-background-color: purple;" text="Interview" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <font>
                   <Font size="29.0" />
                </font>
             </CheckBox>
-            <CheckBox fx:id="society" layoutX="10.0" layoutY="41.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="166.0" style="-fx-background-color: Gray;" text="Society" GridPane.rowIndex="1">
+            <CheckBox fx:id="society" layoutX="10.0" layoutY="41.0" mnemonicParsing="false" onAction="#societyOnAct" prefHeight="70.0" prefWidth="166.0" style="-fx-background-color: #670000;" text="Society" GridPane.rowIndex="1">
                <font>
                   <Font size="29.0" />
                </font>
             </CheckBox>
-            <CheckBox fx:id="rock" layoutX="10.0" layoutY="41.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="166.0" style="-fx-background-color: Black;" text="Rock" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="2">
+            <CheckBox fx:id="rock" layoutX="10.0" layoutY="41.0" mnemonicParsing="false" onAction="#rockOnAction" prefHeight="70.0" prefWidth="166.0" style="-fx-background-color: green; " text="Rock" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="2">
                <font>
                   <Font size="29.0" />
                </font>
             </CheckBox>
-            <CheckBox fx:id="jazz" layoutX="10.0" layoutY="41.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="166.0" style="-fx-background-color: Pink;" text="Jazz" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <CheckBox fx:id="jazz" layoutX="10.0" layoutY="41.0" mnemonicParsing="false" onAction="#jazzOnAct" prefHeight="70.0" prefWidth="166.0" style="-fx-background-color: Pink;" text="Jazz" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <font>
                   <Font size="29.0" />
                </font>
             </CheckBox>
-            <CheckBox fx:id="country" layoutX="10.0" layoutY="41.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="166.0" style="-fx-background-color: Orange;" text="Country" GridPane.rowIndex="2">
+            <CheckBox fx:id="country" layoutX="10.0" layoutY="41.0" mnemonicParsing="false" onAction="#countyOnAction" prefHeight="70.0" prefWidth="166.0" style="-fx-background-color: Orange;" text="Country" GridPane.rowIndex="2">
                <font>
                   <Font size="29.0" />
                </font>
             </CheckBox>
-            <CheckBox fx:id="pop" layoutX="412.0" layoutY="175.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="166.0" style="-fx-background-color: Red;" text="Pop">
+            <CheckBox fx:id="pop" layoutX="412.0" layoutY="175.0" mnemonicParsing="false" onAction="#popOnAct" prefHeight="70.0" prefWidth="166.0" style="-fx-background-color: Red;" text="Pop">
                <font>
                   <Font size="29.0" />
                </font>

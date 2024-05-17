@@ -54,7 +54,7 @@ public class HelloApplication extends Application {
         SetMainScene.setStage(stage);
         try {
             HelloApplication.whereAmI.add(9);
-            SetMainScene.setScene(9);
+            SetMainScene.setScene(3);
         }catch (Exception e){
            System.out.println(e.getMessage());
         }

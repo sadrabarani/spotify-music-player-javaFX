@@ -1,54 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.control.Separator?>
-<?import javafx.scene.control.Slider?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="100.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.PlayBar">
    <children>
       <VBox fx:id="vbox" prefHeight="107.0" prefWidth="750.0">
          <children>
-            <Label fx:id="musicNamelbl" alignment="CENTER" contentDisplay="CENTER" prefHeight="68.0" prefWidth="750.0" text="music name" textAlignment="RIGHT" textOverrun="CENTER_ELLIPSIS">
+            <Label fx:id="musicNamelbl" alignment="CENTER" contentDisplay="CENTER" prefHeight="68.0" prefWidth="750.0" text="music name" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
                <font>
                   <Font name="Gulim" size="23.0" />
                </font>
             </Label>
+            <Separator prefHeight="36.0" prefWidth="750.0" />
             <Separator prefHeight="0.0" prefWidth="750.0" />
             <HBox prefHeight="70.0" prefWidth="750.0">
                <children>
-                  <Button fx:id="prevBtn" mnemonicParsing="false" onAction="#prevMusic" prefHeight="57.0" prefWidth="121.0" text="previous">
+                  <Button fx:id="prevBtn" mnemonicParsing="false" onAction="#prevMusic" prefHeight="50.0" prefWidth="270.0" text="previous">
                      <font>
                         <Font size="23.0" />
                      </font>
                   </Button>
                   <Separator fx:id="sep1" orientation="VERTICAL" prefHeight="50.0" prefWidth="24.0" />
-                  <Button fx:id="playBtn" mnemonicParsing="false" onAction="#playMedia" prefHeight="61.0" prefWidth="121.0" text="PLAY" textOverrun="CENTER_ELLIPSIS">
+                  <Button fx:id="playBtn" mnemonicParsing="false" onAction="#playMedia" prefHeight="50.0" prefWidth="266.0" text="PLAY" textOverrun="CENTER_ELLIPSIS">
                      <font>
                         <Font size="23.0" />
                      </font>
                   </Button>
                   <Separator orientation="VERTICAL" prefHeight="50.0" prefWidth="27.0" />
-                  <Button fx:id="nextBtn" mnemonicParsing="false" onAction="#nextMusic" prefHeight="58.0" prefWidth="114.0" text="next">
+                  <Button fx:id="nextBtn" mnemonicParsing="false" onAction="#nextMusic" prefHeight="54.0" prefWidth="282.0" text="next">
                      <font>
                         <Font size="23.0" />
                      </font>
                   </Button>
-                  <Separator orientation="VERTICAL" prefHeight="50.0" prefWidth="28.0" />
-                  <ComboBox fx:id="speedCombo" onAction="#speedMusic" prefHeight="62.0" prefWidth="126.0" promptText="SPEED" />
-                  <Separator orientation="VERTICAL" prefHeight="54.0" prefWidth="37.0" />
-                  <Slider fx:id="soundSlid" max="200.0" prefHeight="50.0" prefWidth="159.0" value="100.0" />
                </children>
             </HBox>
          </children>
       </VBox>
-      <ProgressBar fx:id="progressBar" layoutY="38.0" prefHeight="12.0" prefWidth="750.0" progress="0.0" />
    </children>
 </AnchorPane>

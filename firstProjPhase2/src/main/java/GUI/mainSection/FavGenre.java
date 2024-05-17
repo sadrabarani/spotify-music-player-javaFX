@@ -3,6 +3,7 @@ package GUI.mainSection;
 import GUI.SetMainScene;
 import GUI.Warning;
 import controller.ListenerControler;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -49,8 +50,89 @@ public class FavGenre implements Initializable {
     @FXML
     private CheckBox trueCrime;
 
+    @FXML
+    void rockOnAction(ActionEvent event) {
+        if (rock.isSelected()) {
+            rock.setStyle("-fx-background-color: black;");
+        } else {
+            rock.setStyle("-fx-background-color: green;");
+        }
+    }
+    @FXML
+    void countyOnAction(ActionEvent event) {
+        if (country.isSelected()) {
+            country.setStyle("-fx-background-color: black;");
+        } else {
+            country.setStyle("-fx-background-color: orange;");
+        }
+    }
+
+    @FXML
+    void hipHipOnAct(ActionEvent event) {
+        if (hiphop.isSelected()) {
+            hiphop.setStyle("-fx-background-color: black;");
+        } else {
+            hiphop.setStyle("-fx-background-color: Green;");
+        }
+    }
+
+    @FXML
+    void historyOnAct(ActionEvent event) {
+        if (history.isSelected()) {
+            history.setStyle("-fx-background-color: black;");
+        } else {
+            history.setStyle("-fx-background-color: Yellow;");
+        }
+    }
+
+    @FXML
+    void interviewOnAct(ActionEvent event) {
+        if (interview.isSelected()) {
+            interview.setStyle("-fx-background-color: black;");
+        } else {
+            interview.setStyle("-fx-background-color: purple;");
+        }
+    }
+
+    @FXML
+    void jazzOnAct(ActionEvent event) {
+        if (jazz.isSelected()) {
+            jazz.setStyle("-fx-background-color: black;");
+        } else {
+            jazz.setStyle("-fx-background-color: pink;");
+        }
+    }
+
+    @FXML
+    void popOnAct(ActionEvent event) {
+        if (pop.isSelected()) {
+            pop.setStyle("-fx-background-color: black;");
+        } else {
+            pop.setStyle("-fx-background-color: red;");
+        }
+    }
+
+    @FXML
+    void societyOnAct(ActionEvent event) {
+        if (society.isSelected()) {
+            society.setStyle("-fx-background-color: black;");
+        } else {
+            society.setStyle("-fx-background-color: #670000;");
+        }
+    }
+
+    @FXML
+    void trueOnaction(ActionEvent event) {
+        if (trueCrime.isSelected()) {
+            trueCrime.setStyle("-fx-background-color: black;");
+        } else {
+            trueCrime.setStyle("-fx-background-color: Blue;");
+        }
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
         submitBtn.setOnMouseClicked(e->{
             ArrayList<String> selectedItems=new ArrayList<>();
             int numberOfSelection = 0;

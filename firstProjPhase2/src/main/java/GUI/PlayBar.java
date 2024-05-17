@@ -60,13 +60,7 @@ public class PlayBar implements Initializable {
     @FXML
     private Separator sep1;
 
-    @FXML
-    private ProgressBar progressBar;
-    @FXML
-    private Slider soundSlid;
 
-    @FXML
-    private ComboBox<?> speedCombo;
 
     @FXML
     private VBox vbox;
@@ -129,7 +123,6 @@ public class PlayBar implements Initializable {
             public void run() {
                 double current = mediaPlayer.getCurrentTime().toSeconds();
                 double end = media.getDuration().toSeconds();
-                progressBar.setProgress(current/end);
                 if (current==end){
                     cancelTimer();
                 }
