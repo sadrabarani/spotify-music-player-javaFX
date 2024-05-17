@@ -25,7 +25,7 @@ public class SetMainScene {
                 return fxmlLoader2;
             case 3: //favorite genre
                 FXMLLoader fxmlLoader3=new FXMLLoader(HelloApplication.class.getResource("fav_Genre.fxml"));
-                fxmlLoader3.setRoot(new AnchorPane());
+                //fxmlLoader3.setRoot(new AnchorPane());
                 return fxmlLoader3;
             case 4: // play music
                 FXMLLoader fxmlLoader4=new FXMLLoader(HelloApplication.class.getResource("play_music.fxml"));
