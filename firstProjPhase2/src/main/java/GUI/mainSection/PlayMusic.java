@@ -2,6 +2,7 @@ package GUI.mainSection;
 
 import GUI.IsLogin;
 import GUI.SetMainScene;
+import GUI.SuccesPopUp;
 import GUI.Warning;
 import controller.ListenerControler;
 import exeptions.FreeAccountLimitException;
@@ -102,9 +103,10 @@ public class PlayMusic implements Initializable {
             if(!IsLogin.isIsLogin())
                 IsLogin.notLogin();
             ListenerControler.getListenerControler().likeAudio(audio.getId());
+            SuccesPopUp.showSuccessfulMessage();
         });
         genreLbl.setText(String.valueOf(audio.getGenre()));
-        String path1= HelloApplication.class.getResource(audio.getCover()).toExternalForm();
+        String path1= HelloApplication.class.getResource("ad46dbb447cd0e9a6aeecd64cc2bd332b0cbcb79.jpeg").toExternalForm();
         Image image1=new Image(path1);
         cover.setFill(new ImagePattern(image1));
         backBtn.setOnMouseClicked(e->{
