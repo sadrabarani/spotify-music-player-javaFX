@@ -3,7 +3,6 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuButton?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Rectangle?>
@@ -41,12 +40,7 @@
                         <Font size="16.0" />
                      </font>
                   </Button>
-                  <MenuButton fx:id="addPlayList" layoutX="280.0" layoutY="354.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="233.0" text="Add to play list">
-                    <items>
-                      <MenuItem mnemonicParsing="false" text="play list 1 name" />
-                      <MenuItem mnemonicParsing="false" text="Action 2" />
-                    </items>
-                  </MenuButton>
+                  <MenuButton fx:id="addPlayList" layoutX="280.0" layoutY="354.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="233.0" text="Add to play list" />
                   <Button fx:id="likeBtn" layoutX="136.0" layoutY="349.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="79.0" style="-fx-background-color: Red;" text="Like" wrapText="true">
                      <font>
                         <Font size="18.0" />

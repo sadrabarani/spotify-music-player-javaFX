@@ -32,6 +32,10 @@ public class PlayBar implements Initializable {
         return audio;
     }
 
+    public static void setAudioArrayList(ArrayList<Audio> audioArrayList) {
+        PlayBar.audioArrayList = audioArrayList;
+    }
+
     public static void setPlayBar(PlayBar playBar) {
         PlayBar.playBar = playBar;
     }
@@ -64,15 +68,13 @@ public class PlayBar implements Initializable {
 
     @FXML
     private VBox vbox;
-    private Timer timer;
-    private TimerTask task;
     private boolean running;
 
     @FXML
     void nextMusic(ActionEvent event) {
         mediaPlayer.stop();
-        cancelTimer();
-       // if (++index>=HelloApplication.getPlayList().size()) index=0; //todo adding path for media
+        if (++index>=audioArrayList.size())
+           index=0; //todo adding path for media
         playing=0;
         playMedia();
     }
@@ -82,57 +84,35 @@ public class PlayBar implements Initializable {
         if (playing!=1){
             playBtn.setText("PAUSE");
             if (playing==0){
-              //  path = HelloApplication.getPlayList().get(index);
+                musicNamelbl.setText(audioArrayList.get(index).getTitle());
+                path = audioArrayList.get(index).getAudioFileLink();
                 media = new Media(path);
                 mediaPlayer = new MediaPlayer(media);
             }
-            beginTimer();
             mediaPlayer.play();
             playing=1;
         }
         else {
             playBtn.setText("PLAY");
-            cancelTimer();
+            musicNamelbl.setText(audioArrayList.get(index).getTitle());
             mediaPlayer.pause();
-            playing=2;
+            playing=0;
         }
     }
 
     @FXML
     void prevMusic(ActionEvent event) {
         mediaPlayer.stop();
-        cancelTimer();
-   //     if (--index<0) index=HelloApplication.getPlayList().size()-1;
+        if (--index<0)
+            index=audioArrayList.size()-1;
         playing=0;
         playMedia();
-    }
-
-    @FXML
-    void speedMusic(ActionEvent event) {
-
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
-    public void beginTimer(){
-        timer = new Timer();
-        task = new TimerTask() {
-            @Override
-            public void run() {
-                double current = mediaPlayer.getCurrentTime().toSeconds();
-                double end = media.getDuration().toSeconds();
-                if (current==end){
-                    cancelTimer();
-                }
-            }
-        };
-        timer.scheduleAtFixedRate(task,1000,1000);
-    }
-    public void cancelTimer(){
-        running = false;
-        timer.cancel();
-    }
+
 }
 

@@ -31,9 +31,9 @@ public class SetMainScene {
                 FXMLLoader fxmlLoader4=new FXMLLoader(HelloApplication.class.getResource("play_music.fxml"));
               //  fxmlLoader4.setRoot(new AnchorPane());
                 return fxmlLoader4;
-            case 5:  //todo singer panel
-                FXMLLoader fxmlLoader5=new FXMLLoader(HelloApplication.class.getResource("signInPg.fxml"));
-                return fxmlLoader5;
+//            case 5:  //todo singer panel
+//                FXMLLoader fxmlLoader5=new FXMLLoader(HelloApplication.class.getResource());
+//                return fxmlLoader5;
             case 6: //all audios
                 FXMLLoader fxmlLoader6=new FXMLLoader(HelloApplication.class.getResource("all-AudiosFxml.fxml"));
                // fxmlLoader6.setRoot(new AnchorPane());
@@ -44,7 +44,7 @@ public class SetMainScene {
                 return fxmlLoader7;
             case 8: // artist info
                 FXMLLoader fxmlLoader8=new FXMLLoader(HelloApplication.class.getResource("artist_infofxml.fxml"));
-                fxmlLoader8.setRoot(new AnchorPane());
+              //  fxmlLoader8.setRoot(new AnchorPane());
                 return fxmlLoader8;
             case 9: // home page for not login people
                 FXMLLoader fxmlLoader9=new FXMLLoader(HelloApplication.class.getResource("home_sortLikeListFxml.fxml"));
