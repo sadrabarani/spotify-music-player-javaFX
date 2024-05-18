@@ -102,11 +102,13 @@ public class PlayMusic implements Initializable {
         likeBtn.setOnMouseClicked(e->{
             if(!IsLogin.isIsLogin())
                 IsLogin.notLogin();
-            ListenerControler.getListenerControler().likeAudio(audio.getId());
-            SuccesPopUp.showSuccessfulMessage();
+            else {
+                ListenerControler.getListenerControler().likeAudio(audio.getId());
+                SuccesPopUp.showSuccessfulMessage();
+            }
         });
         genreLbl.setText(String.valueOf(audio.getGenre()));
-        String path1= HelloApplication.class.getResource("ad46dbb447cd0e9a6aeecd64cc2bd332b0cbcb79.jpeg").toExternalForm();
+        String path1= HelloApplication.class.getResource(audio.getCover()).toExternalForm();
         Image image1=new Image(path1);
         cover.setFill(new ImagePattern(image1));
         backBtn.setOnMouseClicked(e->{

@@ -22,7 +22,7 @@
                         <Label fx:id="passlbl" layoutX="61.0" layoutY="248.0" prefHeight="48.0" prefWidth="378.0" text="Password" />
                         <Label fx:id="dateBirth" layoutX="61.0" layoutY="334.0" prefHeight="48.0" prefWidth="378.0" text="Date of birth : " />
                         <Label fx:id="nameLbl" layoutX="61.0" layoutY="407.0" prefHeight="48.0" prefWidth="378.0" text="Full name" />
-                        <Label fx:id="phoneLbl" layoutX="61.0" layoutY="471.0" prefHeight="48.0" prefWidth="378.0" style="-fx-blend-mode: FLORALWHITE;" text="Phone number : " />
+                        <Label fx:id="phoneLbl" layoutX="61.0" layoutY="471.0" prefHeight="48.0" prefWidth="378.0" style="-fx-blend-mode: #42423f;" text="Phone number : " />
                         <Label fx:id="userlbl" layoutX="61.0" layoutY="178.0" prefHeight="48.0" prefWidth="378.0" text="UserName" />
                         <Label fx:id="emaillbl" layoutX="61.0" layoutY="112.0" prefHeight="48.0" prefWidth="378.0" text="Email : " />
                         <Button layoutX="439.0" layoutY="519.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="90.0" text="Back" />
@@ -34,7 +34,7 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="444.0" prefWidth="388.0">
                      <children>
-                        <ListView fx:id="playListView" layoutX="23.0" layoutY="18.0" prefHeight="490.0" prefWidth="510.0" style="-fx-background-color: FLORALWHITE;" />
+                        <ListView fx:id="playListView" layoutX="23.0" layoutY="18.0" prefHeight="490.0" prefWidth="510.0" style="-fx-background-color: #42423f;" />
                         <Button fx:id="addPlayList" layoutX="23.0" layoutY="523.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="90.0" text="Add play list" />
                         <Button fx:id="backBtn" layoutX="442.0" layoutY="523.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="90.0" text="Back" />
                         <TextField fx:id="playlistNameTxt" layoutX="129.0" layoutY="524.0" promptText="new play list name" />
@@ -46,7 +46,7 @@
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="444.0" prefWidth="388.0">
                      <children>
-                        <ListView fx:id="folowingsListView1" layoutX="23.0" layoutY="18.0" prefHeight="490.0" prefWidth="510.0" style="-fx-background-color: FLORALWHITE;" />
+                        <ListView fx:id="folowingsListView1" layoutX="23.0" layoutY="18.0" prefHeight="490.0" prefWidth="510.0" style="-fx-background-color: #42423f;" />
                         <Button fx:id="backBtn1" layoutX="442.0" layoutY="523.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="90.0" text="Back" />
                      </children>
                   </AnchorPane>

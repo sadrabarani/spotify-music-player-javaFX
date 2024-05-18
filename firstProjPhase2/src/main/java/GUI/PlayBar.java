@@ -74,7 +74,7 @@ public class PlayBar implements Initializable {
     void nextMusic(ActionEvent event) {
         mediaPlayer.stop();
         if (++index>=audioArrayList.size())
-           index=0; //todo adding path for media
+           index=0;
         playing=0;
         playMedia();
     }

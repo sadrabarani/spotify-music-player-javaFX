@@ -1,6 +1,7 @@
 package GUI.mainSection;
 
 import GUI.IsLogin;
+import GUI.PlayBar;
 import GUI.SetMainScene;
 import GUI.SuccesPopUp;
 import controller.ListenerControler;
@@ -8,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import model.Audio.Audio;
 import model.UserAccount.Artist;
 import org.example.firstprojphase2.HelloApplication;
 
@@ -33,12 +35,14 @@ public class AllArtistsFxml implements Initializable {
             allArtistsList.getItems().add(artist);
             allArtistsList.setOnMouseClicked(e->{
                 ArtistInfofxml.artist=artist;
-                SuccesPopUp.showSuccessfulMessage();
                 HelloApplication.whereAmI.add(8);
-                SetMainScene.setMainSection(8);
+                try {
+                    SetMainScene.setScene(8);
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
             });
         }
-
         backBtn.setOnMouseClicked(e->{
             HelloApplication.whereAmI.remove(HelloApplication.whereAmI.size()-1);
             try {

@@ -17,7 +17,7 @@ public class SetMainScene {
         switch (secNum) {
             case 1: //listener panel
                 FXMLLoader fxmlLoader=new FXMLLoader(HelloApplication.class.getResource("listenerPanel.fxml"));
-                fxmlLoader.setRoot(new AnchorPane());
+               // fxmlLoader.setRoot(new AnchorPane());
                 return fxmlLoader;
             case 2: //login panel
                 FXMLLoader fxmlLoader2=new FXMLLoader(HelloApplication.class.getResource("login.fxml"));
@@ -31,7 +31,7 @@ public class SetMainScene {
                 FXMLLoader fxmlLoader4=new FXMLLoader(HelloApplication.class.getResource("play_music.fxml"));
               //  fxmlLoader4.setRoot(new AnchorPane());
                 return fxmlLoader4;
-//            case 5:  //todo singer panel
+//            case 5:
 //                FXMLLoader fxmlLoader5=new FXMLLoader(HelloApplication.class.getResource());
 //                return fxmlLoader5;
             case 6: //all audios
@@ -69,7 +69,7 @@ public class SetMainScene {
     public static Parent setScene(int secNum) throws IOException {
 //        HelloApplication.whereAmI.add(secNum);
         FXMLLoader fxmlLoader= SetMainScene.setMainSection(secNum);
-        FXMLLoader sideFxml=new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
+        FXMLLoader sideFxml=new FXMLLoader(HelloApplication.class.getResource("sideBar.fxml"));
         FXMLLoader playBarFxml=new FXMLLoader(HelloApplication.class.getResource("play_bar.fxml"));
         HBox splitPane = new HBox();
         VBox vBox = new VBox();

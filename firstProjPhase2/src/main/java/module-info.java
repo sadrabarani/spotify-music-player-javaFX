@@ -23,4 +23,6 @@ module org.example.firstprojphase2 {
     opens model.UserAccount to javafx.fxml;
     exports controller;
     opens controller to javafx.fxml;
+    exports GUI.mainSection.Home;
+    opens GUI.mainSection.Home to javafx.fxml;
 }

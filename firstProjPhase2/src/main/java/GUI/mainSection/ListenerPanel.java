@@ -1,6 +1,7 @@
 package GUI.mainSection;
 
 import GUI.SetMainScene;
+import GUI.SuccesPopUp;
 import GUI.Warning;
 import controller.ListenerControler;
 import exeptions.FreeAccountLimitException;
@@ -88,6 +89,7 @@ public class ListenerPanel implements Initializable {
         twoMonSubBtn.setOnMouseClicked(e->{
             try {
                 ListenerControler.getListenerControler().buySub(SubscriptionPlan.TwoMonth);
+                SuccesPopUp.showSuccessfulMessage();
             }catch (LowCreditExeption lowCreditExeption){
                 Warning.warning(String.valueOf(lowCreditExeption.getClass()),lowCreditExeption.getMessage());
             }
@@ -96,6 +98,7 @@ public class ListenerPanel implements Initializable {
         sixMonSubBtn.setOnMouseClicked(e->{
             try {
                 ListenerControler.getListenerControler().buySub(SubscriptionPlan.SixMonth);
+                SuccesPopUp.showSuccessfulMessage();
             }catch (LowCreditExeption lowCreditExeption) {
                 Warning.warning(String.valueOf(lowCreditExeption.getClass()), lowCreditExeption.getMessage());
             }
@@ -104,6 +107,7 @@ public class ListenerPanel implements Initializable {
         oneMonSubBtn.setOnMouseClicked(e->{
             try {
                 ListenerControler.getListenerControler().buySub(SubscriptionPlan.OneMonth);
+                SuccesPopUp.showSuccessfulMessage();
             }catch (LowCreditExeption lowCreditExeption){
                 Warning.warning(String.valueOf(lowCreditExeption.getClass()),lowCreditExeption.getMessage());
             }
@@ -134,6 +138,7 @@ public class ListenerPanel implements Initializable {
                 try {
                     Playlist pl=ListenerControler.getListenerControler().makePlaylist(playlistNameTxt.getText());
                     playListView.getItems().add(pl);
+                    SuccesPopUp.showSuccessfulMessage();
                 } catch (FreeAccountLimitException | SameExistExption ex) {
                     Warning.warning(String.valueOf(ex.getClass()),ex.getMessage());
                 }

@@ -43,14 +43,14 @@ public class AllAudiosFxml implements Initializable {
         audioArrayList= ListenerControler.getListenerControler().sortLikes();
         for(Audio audio:audioArrayList){
             allAudiosList.getItems().add(audio);
-            PlayMusic.audio=audio;
-                PlayBar.setAudio(audio);
             allAudiosList.setOnMouseClicked(e->{
+            PlayMusic.audio=audio;
+            PlayBar.setAudio(audio);
                 try {
                     HelloApplication.whereAmI.add(4);
                     SetMainScene.setScene(4);
                 } catch (IOException ex) {
-                    throw new RuntimeException(ex);
+                   // throw new RuntimeException(ex);
                 }
             });
         }
