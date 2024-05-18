@@ -52,20 +52,11 @@ public class AudioOfPlayList implements Initializable {
             });
         }
         backBtn.setOnMouseClicked( e-> {
-            if (IsLogin.isIsLogin()) {
-                try {
-                    HelloApplication.whereAmI.add(10);
-                    SetMainScene.setScene(10);
-                } catch (IOException ex) {
-                    throw new RuntimeException(ex);
-                }
-            } else {
-                try {
-                    HelloApplication.whereAmI.add(9);
-                    SetMainScene.setScene(9);
-                } catch (IOException ex) {
-                    throw new RuntimeException(ex);
-                }
+            HelloApplication.whereAmI.remove(HelloApplication.whereAmI.size()-1);
+            try {
+                SetMainScene.setScene(HelloApplication.whereAmI.get(HelloApplication.whereAmI.size()-1));
+            } catch (IOException ex) {
+              //  throw new RuntimeException(ex);
             }
         });
 

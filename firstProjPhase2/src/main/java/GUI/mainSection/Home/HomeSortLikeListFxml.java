@@ -1,7 +1,8 @@
-package GUI.mainSection;
+package GUI.mainSection.Home;
 
 import GUI.PlayBar;
 import GUI.SetMainScene;
+import GUI.mainSection.PlayMusic;
 import controller.ListenerControler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -14,29 +15,28 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class HomeSugestForLogin implements Initializable {
+public class HomeSortLikeListFxml implements Initializable {
 
     @FXML
-    private ListView sugestList;
+    private ListView mostLikedList;
 
-    private int numberOfSugestion=0;
-
+    private int numberOfMostLiked=1;
     //todo change number
     //todo add Audio to data base
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        ArrayList<Audio> audioArrayList=ListenerControler.getListenerControler().suggestAudio(numberOfSugestion);
-        for (int i = 0; i < numberOfSugestion; i++) {
-            sugestList.getItems().add(audioArrayList.get(i));
+        ArrayList<Audio> audioArrayList= ListenerControler.getListenerControler().sortLikes();
+        for (int i = 0; i < numberOfMostLiked; i++) {
+            mostLikedList.getItems().add(audioArrayList.get(i));
             PlayBar.setAudio(audioArrayList.get(i));
             PlayMusic.audio=audioArrayList.get(i);
-            sugestList.setOnMouseClicked(e->{
+            mostLikedList.setOnMouseClicked(e->{
                 try {
                     HelloApplication.whereAmI.add(4);
                     SetMainScene.setScene(4);
                 } catch (IOException ex) {
-                    throw new RuntimeException(ex);
+               //     throw new RuntimeException(ex);
                 }
             });
         }
