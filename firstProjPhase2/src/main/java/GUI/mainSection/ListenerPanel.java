@@ -129,6 +129,12 @@ public class ListenerPanel implements Initializable {
             playListView.getItems().add(playlist);
             playListView.setOnMouseClicked(e->{
                 AudioOfPlayList.setPlaylist(playlist);
+                HelloApplication.whereAmI.add(11);
+                try {
+                    SetMainScene.setScene(11);
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
             });
         }
         addPlayList.setOnMouseClicked(e->{
