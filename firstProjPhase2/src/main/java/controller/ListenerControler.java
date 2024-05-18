@@ -1,6 +1,8 @@
 package controller;
 
 import GUI.IsLogin;
+import GUI.SuccesPopUp;
+import GUI.Warning;
 import exeptions.*;
 import model.*;
 import model.Audio.Audio;
@@ -146,21 +148,22 @@ public class ListenerControler {
             if (playlist.getName().equals(playListname)) {
                 if (listenerr instanceof RegularListener) {
                     if (playlist.getAudios().size() >= ((RegularListener) listenerr).getAddLimit()) {
-                        throw new FreeAccountLimitException("maximum add is 10.");
+                        Warning.warning( "FreeAccountLimitException","maximum add is 10.");
                     }
                 }
                 for (Audio audio : Database.getDatabase().getAudios()) {
                     if (audio.getId() == auidioId) {
                     if(playlist.getAudios().contains(audio)){
-                        throw new SameExistExption( "its already added");
-                    }
+                        Warning.warning("SameExistExption", "its already added");
+                    }else {
                         listenerr.getPlaylists().get(tmpInd).getAudios().add(audio);
+                        SuccesPopUp.showSuccessfulMessage();
+                    }
                     }
                 }
             }
             tmpInd++;
         }
-        throw new NotFoundExeption();
     }
     public String playAudio(int audioId){
         for (Audio audio:Database.getDatabase().getAudios()){
