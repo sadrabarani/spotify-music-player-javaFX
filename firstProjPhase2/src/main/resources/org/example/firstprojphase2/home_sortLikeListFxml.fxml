@@ -1,24 +1,175 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.mainSection.Home.HomeSortLikeListFxml">
+<AnchorPane prefHeight="600.0" prefWidth="550.0" style="-fx-background-color: #000000EF;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.mainSection.Home.HomeSortLikeListFxml">
    <children>
-      <ListView fx:id="mostLikedList" layoutX="12.0" layoutY="118.0" prefHeight="474.0" prefWidth="530.0" />
-      <Label layoutX="14.0" layoutY="14.0" prefHeight="59.0" prefWidth="88.0" text="Home">
+      <Label layoutX="14.0" layoutY="58.0" prefHeight="59.0" prefWidth="88.0" text="Home" textFill="#00ff09">
          <font>
-            <Font size="29.0" />
+            <Font name="Gill Sans MT Bold Italic" size="31.0" />
          </font>
       </Label>
-      <Label layoutX="12.0" layoutY="85.0" prefHeight="34.0" prefWidth="288.0" text="most liked audios : ">
+      <Label layoutX="14.0" layoutY="118.0" prefHeight="34.0" prefWidth="288.0" text="most liked audios : " textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Separator layoutX="14.0" layoutY="59.0" prefHeight="34.0" prefWidth="88.0" />
+      <Separator layoutX="14.0" layoutY="101.0" prefHeight="34.0" prefWidth="88.0" />
+      <ScrollPane fx:id="scrollPane" fitToHeight="true" fitToWidth="true" layoutY="178.0" pannable="true" prefHeight="370.0" prefWidth="550.0" style="-fx-background-color: #000000EF;">
+         <content>
+            <HBox prefHeight="321.0" prefWidth="1469.0" style="-fx-background-color: #000000EF;">
+               <children>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Rectangle fx:id="cover1" arcHeight="5.0" arcWidth="5.0" fill="#4e4e4e" height="200.0" layoutX="8.0" layoutY="9.0" stroke="BLACK" strokeType="INSIDE" width="182.0" />
+                        <Label fx:id="musicname1lbl" layoutX="9.0" layoutY="209.0" prefHeight="30.0" prefWidth="181.0" text="Label" textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="artistnamelbl" layoutX="8.0" layoutY="236.0" prefHeight="30.0" prefWidth="181.0" text="Label" textFill="#969696" wrapText="true">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Rectangle fx:id="cover2s" arcHeight="5.0" arcWidth="5.0" fill="#6b6b6b" height="200.0" layoutX="8.0" layoutY="9.0" stroke="BLACK" strokeType="INSIDE" width="182.0" />
+                        <Label fx:id="musicnamelbl2s" layoutX="9.0" layoutY="209.0" prefHeight="30.0" prefWidth="181.0" text="Label" textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="artistnamelbl0ss" layoutX="8.0" layoutY="236.0" prefHeight="30.0" prefWidth="181.0" text="Label" textFill="#969696" wrapText="true">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Rectangle fx:id="cover11" arcHeight="5.0" arcWidth="5.0" fill="#616161" height="200.0" layoutX="8.0" layoutY="9.0" stroke="BLACK" strokeType="INSIDE" width="182.0" />
+                        <Label fx:id="musicname1lbl1" layoutX="9.0" layoutY="209.0" prefHeight="30.0" prefWidth="181.0" text="Label" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="artistnamelbl1" layoutX="8.0" layoutY="236.0" prefHeight="30.0" prefWidth="181.0" text="Label" textFill="#969696" wrapText="true">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Rectangle fx:id="cover12" arcHeight="5.0" arcWidth="5.0" fill="#898989" height="200.0" layoutX="8.0" layoutY="9.0" stroke="BLACK" strokeType="INSIDE" width="182.0" />
+                        <Label fx:id="musicname1lbl2" layoutX="9.0" layoutY="209.0" prefHeight="30.0" prefWidth="181.0" text="Label" textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="artistnamelbl2" layoutX="8.0" layoutY="236.0" prefHeight="30.0" prefWidth="181.0" text="Label" textFill="#969696" wrapText="true">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Rectangle fx:id="cover13" arcHeight="5.0" arcWidth="5.0" fill="#6e6e6e" height="200.0" layoutX="8.0" layoutY="9.0" stroke="BLACK" strokeType="INSIDE" width="182.0" />
+                        <Label fx:id="musicname1lbl3" layoutX="9.0" layoutY="209.0" prefHeight="30.0" prefWidth="181.0" text="Label" textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="artistnamelbl3" layoutX="8.0" layoutY="236.0" prefHeight="30.0" prefWidth="181.0" text="Label" textFill="#969696">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Rectangle fx:id="cover14" arcHeight="5.0" arcWidth="5.0" fill="#5e5e5e" height="200.0" layoutX="8.0" layoutY="9.0" stroke="BLACK" strokeType="INSIDE" width="182.0" />
+                        <Label fx:id="musicname1lbl4" layoutX="9.0" layoutY="209.0" prefHeight="30.0" prefWidth="181.0" text="Label" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="artistnamelbl4" layoutX="8.0" layoutY="236.0" prefHeight="30.0" prefWidth="181.0" text="Label" textFill="#969696">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Rectangle fx:id="cover15" arcHeight="5.0" arcWidth="5.0" fill="#ff1f1f" height="200.0" layoutX="8.0" layoutY="9.0" stroke="BLACK" strokeType="INSIDE" width="182.0" />
+                        <Label fx:id="musicname1lbl5" layoutX="9.0" layoutY="209.0" prefHeight="30.0" prefWidth="181.0" text="Label" textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="artistnamelbl5" layoutX="8.0" layoutY="236.0" prefHeight="30.0" prefWidth="181.0" text="Label" textFill="#969696" wrapText="true">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Rectangle fx:id="cover16" arcHeight="5.0" arcWidth="5.0" fill="#404040" height="200.0" layoutX="8.0" layoutY="9.0" stroke="BLACK" strokeType="INSIDE" width="182.0" />
+                        <Label fx:id="musicname1lbl6" layoutX="9.0" layoutY="209.0" prefHeight="30.0" prefWidth="181.0" text="Label" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="artistnamelbl6" layoutX="8.0" layoutY="236.0" prefHeight="30.0" prefWidth="181.0" text="Label" textFill="#969696">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="moreAnchor" prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Rectangle fx:id="cover17" arcHeight="5.0" arcWidth="5.0" fill="#6e6e6e" height="200.0" layoutX="8.0" layoutY="9.0" stroke="BLACK" strokeType="INSIDE" width="182.0" />
+                        <Label fx:id="musicname1lbl7" alignment="CENTER" layoutX="9.0" layoutY="209.0" prefHeight="30.0" prefWidth="181.0" text="more" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="artistnamelbl7" layoutX="8.0" layoutY="236.0" prefHeight="30.0" prefWidth="181.0" textFill="#969696">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="156.0" fitWidth="164.0" layoutX="18.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true" rotate="90.0">
+                           <image>
+                              <Image url="@images/more.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </HBox>
+         </content>
+      </ScrollPane>
    </children>
 </AnchorPane>

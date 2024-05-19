@@ -109,7 +109,7 @@ public class PlayMusic implements Initializable {
             }
         });
         genreLbl.setText(String.valueOf(audio.getGenre()));
-        String path1= HelloApplication.class.getResource(audio.getCover()).toExternalForm();
+        String path1= HelloApplication.class.getResource("images/"+audio.getCover()).toExternalForm();
         Image image1=new Image(path1);
         cover.setFill(new ImagePattern(image1));
         backBtn.setOnMouseClicked(e->{
