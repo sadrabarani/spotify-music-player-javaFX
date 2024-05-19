@@ -1,0 +1,5 @@
+
+scrollPane.setStyle( "-fx-background: green; " + "-fx-background-color: green;" );
+scrollPane.lookupAll(".scroll-bar").forEach(bar -> {
+                                                     bar.setStyle("-fx-background-color: green;");
+                                                     bar.lookupAll(".thumb").forEach(thumb -> thumb.setStyle("-fx-background-color: green;") );

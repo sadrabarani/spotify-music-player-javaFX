@@ -12,30 +12,30 @@
    <children>
       <VBox fx:id="vbox" prefHeight="107.0" prefWidth="750.0">
          <children>
-            <Label fx:id="musicNamelbl" alignment="CENTER" contentDisplay="CENTER" prefHeight="68.0" prefWidth="750.0" text="music name" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
+            <Label fx:id="musicNamelbl" alignment="CENTER" contentDisplay="CENTER" prefHeight="68.0" prefWidth="750.0" style="-fx-background-color: rgba(0,0,0,0.94);" text="music name" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS">
                <font>
-                  <Font name="Gulim" size="23.0" />
+                  <Font name="Gulim" size="30.0" />
                </font>
             </Label>
-            <Separator prefHeight="36.0" prefWidth="750.0" />
+            <Separator prefHeight="36.0" prefWidth="750.0" style="-fx-background-color: rgba(14,13,13,0.96);" />
             <Separator prefHeight="0.0" prefWidth="750.0" />
             <HBox prefHeight="70.0" prefWidth="750.0">
                <children>
-                  <Button fx:id="prevBtn" mnemonicParsing="false" onAction="#prevMusic" prefHeight="50.0" prefWidth="270.0" text="previous">
+                  <Button fx:id="prevBtn" mnemonicParsing="false" onAction="#prevMusic" prefHeight="50.0" prefWidth="270.0" style="-fx-background-color: black;" text="previous" textFill="WHITE">
                      <font>
-                        <Font size="23.0" />
+                        <Font name="System Bold Italic" size="25.0" />
                      </font>
                   </Button>
                   <Separator fx:id="sep1" orientation="VERTICAL" prefHeight="50.0" prefWidth="24.0" />
-                  <Button fx:id="playBtn" mnemonicParsing="false" onAction="#playMedia" prefHeight="50.0" prefWidth="266.0" text="PLAY" textOverrun="CENTER_ELLIPSIS">
+                  <Button fx:id="playBtn" mnemonicParsing="false" onAction="#playMedia" prefHeight="50.0" prefWidth="266.0" style="-fx-background-color: black;" text="PLAY" textFill="WHITE" textOverrun="CENTER_ELLIPSIS">
                      <font>
-                        <Font size="23.0" />
+                        <Font name="System Bold Italic" size="25.0" />
                      </font>
                   </Button>
                   <Separator orientation="VERTICAL" prefHeight="50.0" prefWidth="27.0" />
-                  <Button fx:id="nextBtn" mnemonicParsing="false" onAction="#nextMusic" prefHeight="54.0" prefWidth="282.0" text="next">
+                  <Button fx:id="nextBtn" mnemonicParsing="false" onAction="#nextMusic" prefHeight="54.0" prefWidth="282.0" style="-fx-background-color: black;" text="next" textFill="WHITE">
                      <font>
-                        <Font size="23.0" />
+                        <Font name="System Bold Italic" size="25.0" />
                      </font>
                   </Button>
                </children>
