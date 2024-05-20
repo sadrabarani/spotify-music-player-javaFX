@@ -13,29 +13,29 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<fx:root prefHeight="600.0" prefWidth="550.0" type="AnchorPane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.mainSection.Login">
+<fx:root prefHeight="600.0" prefWidth="550.0" style="-fx-background-color: #000000EF;" type="AnchorPane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.mainSection.Login">
    <children>
-      <TabPane prefHeight="600.0" prefWidth="550.0" tabClosingPolicy="UNAVAILABLE">
+      <TabPane prefHeight="600.0" prefWidth="550.0" style="-fx-background-color: #000000EF;" tabClosingPolicy="UNAVAILABLE">
         <tabs>
           <Tab text="Login">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="171.0" prefWidth="172.0">
                      <children>
-                        <Label fx:id="userLbl" layoutX="31.0" layoutY="144.0" prefHeight="52.0" prefWidth="181.0" text="USER NAME">
+                        <Label fx:id="userLbl" layoutX="31.0" layoutY="144.0" prefHeight="52.0" prefWidth="181.0" text="USER NAME" textFill="#999999">
                            <font>
-                              <Font size="25.0" />
+                              <Font size="27.0" />
                            </font>
                         </Label>
-                        <Label fx:id="passlbl" layoutX="31.0" layoutY="231.0" prefHeight="18.0" prefWidth="159.0" text="PASSWORD">
+                        <Label fx:id="passlbl" layoutX="31.0" layoutY="231.0" prefHeight="18.0" prefWidth="159.0" text="PASSWORD" textFill="#999999">
                            <font>
-                              <Font size="26.0" />
+                              <Font size="27.0" />
                            </font>
                         </Label>
                         <TextField fx:id="userNameTxt" layoutX="233.0" layoutY="231.0" prefHeight="38.0" prefWidth="247.0" promptText="user name " />
                         <PasswordField fx:id="passField" layoutX="233.0" layoutY="157.0" prefHeight="38.0" prefWidth="247.0" promptText="password ( more than 8 character )" />
-                        <Label fx:id="loginLbl" layoutX="25.0" layoutY="29.0" prefHeight="38.0" prefWidth="267.0" text="Login">
+                        <Label fx:id="loginLbl" layoutX="25.0" layoutY="29.0" prefHeight="38.0" prefWidth="267.0" text="Login" textFill="#04ff00">
                            <font>
-                              <Font size="36.0" />
+                              <Font name="System Italic" size="36.0" />
                            </font>
                         </Label>
                         <Button fx:id="backBtn" layoutX="377.0" layoutY="484.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="119.0" text="back" />
@@ -65,12 +65,12 @@
                         <TextField fx:id="fulNameTxt" layoutX="108.0" layoutY="125.0" promptText="first name/ last name" />
                         <TextField fx:id="phoneNimberTxt" layoutX="108.0" layoutY="485.0" promptText="09xxxxxxxx(11)" />
                         <TextField fx:id="emailTxt" layoutX="108.0" layoutY="310.0" promptText="{}.@gmail.com" />
-                        <DatePicker fx:id="dateBirth" layoutX="325.0" layoutY="208.0" promptText="Date of bearth" />
-                        <Label layoutX="26.0" layoutY="402.0" text="user name" />
-                        <Label layoutX="27.0" layoutY="212.0" text="pass word" />
-                        <Label layoutX="28.0" layoutY="129.0" text="Full name" />
-                        <Label layoutX="14.0" layoutY="489.0" text="Phone number" />
-                        <Label layoutX="40.0" layoutY="314.0" text="email" />
+                        <DatePicker fx:id="dateBirth" layoutX="318.0" layoutY="207.0" prefHeight="26.0" prefWidth="175.0" promptText="Date of bearth" />
+                        <Label layoutX="26.0" layoutY="402.0" text="user name" textFill="#9e9e9e" />
+                        <Label layoutX="27.0" layoutY="212.0" text="pass word" textFill="#9e9e9e" />
+                        <Label layoutX="28.0" layoutY="129.0" text="Full name" textFill="#9e9e9e" />
+                        <Label layoutX="14.0" layoutY="489.0" text="Phone number" textFill="#9e9e9e" />
+                        <Label layoutX="40.0" layoutY="314.0" text="email" textFill="#9e9e9e" />
                         <Button fx:id="backBtn1" layoutX="351.0" layoutY="476.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="122.0" text="Back" textAlignment="CENTER">
                            <font>
                               <Font size="20.0" />
@@ -82,9 +82,9 @@
                            </font>
                         </Button>
                         <Separator layoutX="28.0" layoutY="81.0" prefHeight="26.0" prefWidth="270.0" />
-                        <Label layoutX="28.0" layoutY="13.0" prefHeight="59.0" prefWidth="231.0" text="Sign in">
+                        <Label layoutX="26.0" layoutY="24.0" prefHeight="69.0" prefWidth="231.0" text="Sign in" textFill="#00ff04">
                            <font>
-                              <Font size="39.0" />
+                              <Font name="System Italic" size="37.0" />
                            </font>
                         </Label>
                         <MenuButton fx:id="menuItems" layoutX="318.0" layoutY="124.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="175.0" text="choose user type">
