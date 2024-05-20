@@ -40,19 +40,46 @@ public class AllArtistsFxml implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         artists= ListenerControler.getListenerControler().showArtists();
-        for(Artist artist:artists){
-            allArtistsList.getItems().add(artist);
-           // allArtistsList.get().("-fx-background-color: black");
-            allArtistsList.setOnMouseClicked(e->{
-                ArtistInfofxml.artist=artist;
+//        for(Artist artist:artists){
+//            allArtistsList.getItems().add(artist);
+//           // allArtistsList.get().("-fx-background-color: black");
+//            allArtistsList.setOnMouseClicked(e->{
+//                ArtistInfofxml.artist=artist;
+//                HelloApplication.whereAmI.add(8);
+//                try {
+//                    SetMainScene.setScene(8);
+//                } catch (IOException ex) {
+//                    throw new RuntimeException(ex);
+//                }
+//            });
+//        }
+        allArtistsList.getItems().addAll(artists);
+        allArtistsList.setCellFactory(lv -> new ListCell<Artist>() {
+            @Override
+            protected void updateItem(Artist artist, boolean empty) {
+                super.updateItem(artist, empty);
+                if (empty || artist == null) {
+                    setText(null);
+                    setStyle("");
+                } else {
+                    setText(artist.toString());
+                    setStyle("-fx-background-color: black; -fx-text-fill: white;");
+                }
+            }
+        });
+
+        allArtistsList.setOnMouseClicked(e -> {
+            Artist artist = (Artist) allArtistsList.getSelectionModel().getSelectedItem();
+            if (artist != null) {
+                ArtistInfofxml.artist = artist;
                 HelloApplication.whereAmI.add(8);
                 try {
                     SetMainScene.setScene(8);
                 } catch (IOException ex) {
                     throw new RuntimeException(ex);
                 }
-            });
-        }
+            }
+        });
         backBtn.setOnMouseClicked(e->{
             HelloApplication.whereAmI.remove(HelloApplication.whereAmI.size()-1);
             try {

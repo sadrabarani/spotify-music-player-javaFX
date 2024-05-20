@@ -3,11 +3,14 @@ package GUI.mainSection;
 import GUI.*;
 import controller.ListenerControler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import model.Audio.Audio;
 import model.UserAccount.Artist;
 import model.UserAccount.Podcaster;
@@ -31,16 +34,13 @@ public class ArtistInfofxml implements Initializable {
     }
 
     @FXML
-    private Button followBtn;
-
-    @FXML
     private Label artistInfoLbl;
 
     @FXML
     private Button backBtn;
 
     @FXML
-    private ListView listMusicOfArtist;
+    private Button followBtn;
 
     @FXML
     private TextArea reportDis;
@@ -48,8 +48,14 @@ public class ArtistInfofxml implements Initializable {
     @FXML
     private Button subReport;
 
+    @FXML
+    private VBox vboxItems;
+
+    @FXML
+    private Label artistNameLbl;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        artistNameLbl.setText(artist.getFullName());
         subReport.setOnMouseClicked(e->{
             if(!IsLogin.isIsLogin())
                 IsLogin.notLogin();
@@ -81,31 +87,47 @@ public class ArtistInfofxml implements Initializable {
         });
         if(artist instanceof Podcaster) {
             for (Audio audio : ((Podcaster) artist).getPodcasts()){
-                listMusicOfArtist.getItems().add(audio);
-                listMusicOfArtist.setOnMouseClicked(e->{
-                    PlayMusic.audio=audio;
-                    PlayBar.setAudio(audio);
-                    try {
-                        HelloApplication.whereAmI.add(4);
-                        SetMainScene.setScene(4);
-                    } catch (IOException ex) {
-                        throw new RuntimeException(ex);
-                    }
-                });
+                FXMLLoader fxmlLoaderl=new FXMLLoader(HelloApplication.class.getResource("songItem.fxml"));
+                try {
+                    AnchorPane parent=fxmlLoaderl.load();
+                    SongItemcontroller songItemcontroller=fxmlLoaderl.getController();
+                    songItemcontroller.setData(audio);
+                    vboxItems.getChildren().add(parent);
+                    parent.setOnMouseClicked(e->{
+                        PlayMusic.audio=audio;
+                        PlayBar.setAudio(audio);
+                        try {
+                            HelloApplication.whereAmI.add(4);
+                            SetMainScene.setScene(4);
+                        } catch (IOException ex) {
+                            // throw new RuntimeException(ex);
+                        }
+                    });
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
             }
         } else if (artist instanceof Singer) {
             for(Audio audio:((Singer) artist).getAlbums()){
-                listMusicOfArtist.getItems().add(audio);
-                listMusicOfArtist.setOnMouseClicked(e->{
-                    PlayMusic.audio=audio;
-                    PlayBar.setAudio(audio);
-                    try {
-                        HelloApplication.whereAmI.add(4);
-                        SetMainScene.setScene(4);
-                    } catch (IOException ex) {
-                        throw new RuntimeException(ex);
-                    }
-                });
+                FXMLLoader fxmlLoaderl=new FXMLLoader(HelloApplication.class.getResource("songItem.fxml"));
+                try {
+                    AnchorPane parent=fxmlLoaderl.load();
+                    SongItemcontroller songItemcontroller=fxmlLoaderl.getController();
+                    songItemcontroller.setData(audio);
+                    vboxItems.getChildren().add(parent);
+                    parent.setOnMouseClicked(e->{
+                        PlayMusic.audio=audio;
+                        PlayBar.setAudio(audio);
+                        try {
+                            HelloApplication.whereAmI.add(4);
+                            SetMainScene.setScene(4);
+                        } catch (IOException ex) {
+                            // throw new RuntimeException(ex);
+                        }
+                    });
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
             }
         }
     }
