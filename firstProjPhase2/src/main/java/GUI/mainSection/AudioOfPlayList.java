@@ -3,10 +3,14 @@ package GUI.mainSection;
 import GUI.IsLogin;
 import GUI.PlayBar;
 import GUI.SetMainScene;
+import GUI.SongItemcontroller;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import model.Audio.Audio;
 import model.Playlist;
 import org.example.firstprojphase2.HelloApplication;
@@ -38,6 +42,8 @@ public class AudioOfPlayList implements Initializable {
     private Button backBtn;
 
     @FXML
+    private VBox vboxItems;
+    @FXML
     private ListView<Audio> listAudiosPlayList;
 
     @Override
@@ -50,6 +56,27 @@ public class AudioOfPlayList implements Initializable {
                 HelloApplication.whereAmI.add(4);
                 SetMainScene.setMainSection(4);
             });
+        }
+        for(Object audio:playlist){
+            FXMLLoader fxmlLoaderl=new FXMLLoader(HelloApplication.class.getResource("songItem.fxml"));
+            try {
+                AnchorPane parent=fxmlLoaderl.load();
+                SongItemcontroller songItemcontroller=fxmlLoaderl.getController();
+                songItemcontroller.setData((Audio) audio);
+                vboxItems.getChildren().add(parent);
+                parent.setOnMouseClicked(e->{
+                    PlayMusic.audio=(Audio) audio;
+                    PlayBar.setAudio((Audio) audio);
+                    try {
+                        HelloApplication.whereAmI.add(4);
+                        SetMainScene.setScene(4);
+                    } catch (IOException ex) {
+                        // throw new RuntimeException(ex);
+                    }
+                });
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         }
         backBtn.setOnMouseClicked( e-> {
             HelloApplication.whereAmI.remove(HelloApplication.whereAmI.size()-1);
