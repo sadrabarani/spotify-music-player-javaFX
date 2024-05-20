@@ -62,7 +62,7 @@ public class PlayMusic implements Initializable {
 
 
     @FXML
-    private Button likeBtn;
+    private ImageView likeBtn;
 
     @FXML
     private Label lyricLbl;
@@ -70,8 +70,7 @@ public class PlayMusic implements Initializable {
     @FXML
     private Label musicNameLbl;
 
-    @FXML
-    private Label numerOfLikesLbl;
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -94,7 +93,6 @@ public class PlayMusic implements Initializable {
             }
         }
         artistLbl.setText(audio.getArtistName());
-        numerOfLikesLbl.setText(String.valueOf(audio.getLikes()));
         musicNameLbl.setText(audio.getTitle());
         if(audio instanceof Podcast)
             lyricLbl.setText(((Podcast) audio).getCaption());
