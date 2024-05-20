@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="50.0" prefWidth="500.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.SongItemcontroller">
+   <children>
+      <HBox layoutX="2.0" layoutY="-7.0" prefHeight="65.0" prefWidth="500.0" style="-fx-background-color: black;">
+         <children>
+            <AnchorPane prefHeight="54.0" prefWidth="299.0" style="-fx-background-color: #000000EF;">
+               <children>
+                  <Rectangle fx:id="coverRect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="48.0" layoutX="10.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" width="46.0" />
+                  <Label fx:id="songNamelbl" layoutX="67.0" layoutY="10.0" prefHeight="54.0" prefWidth="107.0" text="Label" textFill="WHITE">
+                     <font>
+                        <Font name="System Italic" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="artistNamelbl1" layoutX="180.0" layoutY="10.0" prefHeight="54.0" prefWidth="107.0" text="Label" textFill="WHITE">
+                     <font>
+                        <Font name="System Italic" size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="66.0" prefWidth="241.0">
+               <children>
+                  <ImageView accessibleRole="BUTTON" fitHeight="54.0" fitWidth="60.0" layoutX="150.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/play_green_button_icon_227849.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>
