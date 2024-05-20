@@ -47,8 +47,9 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         Singer singer=new Singer("sadr","23fyi!komr10>","sadra b","email@ofs.ocm","09876543212",new Date(1990,10,22),"agha ye seda");
-        Music music=new Music(0,"title 1","sadr",14,10120,new Date(1991,2,3),Genre.Country,"http://dl.pmcmusic.tv/1397/08/Reza%20Pishro%20%26%20T-Dey%20-%20Aghrabe%20%28Ft%20Pedram%20Plus%29%20%5B128%5D.mp3","pishro1.jpg","caption >>\n");
-        Music music1=new Music(1,"title 2","sadr",12,82221,new Date(1991,2,3),Genre.Country,"http://dl.pmcmusic.tv/1397/07/Reza%20Pishro%20Ft%20Ali%20Owj%20%26%20Ghadar%20-%20Jaraghe%20%5B128%5D.mp3","pishro2.jpg","caption >>\n");
+        Singer singer1=new Singer("pishro","23fyi!komr10>","reza pishro","email@ofs.ocm","09876543212",new Date(1990,10,22),"shah");
+        Music music=new Music(0,"title 1","pishro",14,10120,new Date(1991,2,3),Genre.Country,"http://dl.pmcmusic.tv/1397/08/Reza%20Pishro%20%26%20T-Dey%20-%20Aghrabe%20%28Ft%20Pedram%20Plus%29%20%5B128%5D.mp3","pishro1.jpg","caption >>\n");
+        Music music1=new Music(1,"title 2","pishro",12,82221,new Date(1991,2,3),Genre.Country,"http://dl.pmcmusic.tv/1397/07/Reza%20Pishro%20Ft%20Ali%20Owj%20%26%20Ghadar%20-%20Jaraghe%20%5B128%5D.mp3","pishro2.jpg","caption >>\n");
         Music music2=new Music(2,"tabasom 2","tataloo",1112,121,new Date(1991,2,3),Genre.Rock,"https://dl.my-ahangha.ir/up/2023/Amir%20Tataloo%20-%20Tabassome%20Dard%20128.mp3","Amir Tataloo - Tabassome Dard.jpg","caption >>\n");
         Music music3=new Music(3,"chesmato beband","tataloo",12,11,new Date(1991,2,3),Genre.Country,"https://dl.my-ahangha.ir/up/2023/Amir%20Tataloo%20-%20Cheshmato%20Az%20Hame%20Bedozd%20128.mp3","Amir Tataloo - Cheshmato Az Hame Bedozd.jpg","caption >>\n");
         Music music4=new Music(4,"koche akhar","mohsen chavoshi",12,11,new Date(1991,2,3),Genre.Country,"https://dl.my-ahangha.ir/up/2024/Mohsen%20Chavoshi%20-%20Koocheye%20Akhar%20128.mp3","Mohsen Chavoshi - Koocheye Akhar.jpg","caption >>\n");
@@ -56,8 +57,10 @@ public class HelloApplication extends Application {
         Music music6=new Music(6,"zare bin","mohsen chavoshi",12,11,new Date(1991,2,3),Genre.Country,"https://dl.my-ahangha.ir/up/2023/Mohsen%20Chavoshi%20-%20Zarre%20Bin%20128.mp3","Mohsen Chavoshi - Zarre Bin.jpg","caption >>\n");
         Music music7=new Music(7,"yar juny","aron afshar",12,11,new Date(1991,2,3),Genre.Country,"https://dl.my-ahangha.ir/up/2024/Aron%20Afshar%20-%20Yare%20Jooni%20128.mp3","Aron Afshar - Yare Jooni.jpg","caption >>\n");
         Music music8=new Music(8,"dashe golam","sepehr khalse",12,11,new Date(1991,2,3),Genre.Country,"https://dl.my-ahangha.ir/up/2022/Sepehr%20Khalse%20-%20Dashe%20Golam%20128.mp3","Sepehr Khalse - Dashe Golam.jpg","caption >>\n");
-        singer.getAlbums().add(music);
+        singer1.getAlbums().add(music);
+        singer1.getAlbums().add(music1);
         Database.getDatabase().getUsers().add(singer);
+        Database.getDatabase().getUsers().add(singer1);
         Database.getDatabase().getAudios().add(music);
         Database.getDatabase().getAudios().add(music1);
         Database.getDatabase().getAudios().add(music2);
