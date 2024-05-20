@@ -1,25 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="559.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.mainSection.AllAudiosFxml">
+<AnchorPane prefHeight="600.0" prefWidth="559.0" style="-fx-background-color: #000000EF;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.mainSection.AllAudiosFxml">
    <children>
-      <ListView fx:id="allAudiosList" editable="true" layoutX="13.0" layoutY="72.0" prefHeight="463.0" prefWidth="534.0" />
-      <Button fx:id="backBtn" layoutX="431.0" layoutY="541.0" mnemonicParsing="false" onAction="#back_event" prefHeight="38.0" prefWidth="114.0" text="Back">
+      <Button fx:id="backBtn" layoutX="431.0" layoutY="541.0" mnemonicParsing="false" onAction="#back_event" prefHeight="38.0" prefWidth="114.0" style="-fx-background-color: #000000EF;" text="Back" textFill="#898989">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Label layoutX="14.0" layoutY="14.0" prefHeight="40.0" prefWidth="232.0" text="ALL Audios" wrapText="true">
+      <Label layoutX="22.0" layoutY="14.0" prefHeight="40.0" prefWidth="232.0" text="ALL Audios" textFill="#00ff09" wrapText="true">
          <font>
-            <Font size="29.0" />
+            <Font name="System Italic" size="30.0" />
          </font>
       </Label>
-      <Separator layoutX="14.0" layoutY="56.0" prefHeight="16.0" prefWidth="534.0" />
+      <Separator layoutX="22.0" layoutY="52.0" prefHeight="16.0" prefWidth="149.0" />
+      <ScrollPane hbarPolicy="NEVER" layoutX="16.0" layoutY="74.0" prefHeight="450.0" prefWidth="528.0" style="-fx-background-color: #000000EF;" stylesheets="@scrollCss.css" vbarPolicy="ALWAYS">
+         <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="457.0" prefWidth="522.0" style="-fx-background-color: #000000EF;">
+               <children>
+                  <VBox fx:id="vboxItems" layoutX="4.0" layoutY="-1.0" prefHeight="438.0" prefWidth="500.0" spacing="25.0" style="-fx-background-color: #000000EF;">
+                     <padding>
+                        <Insets bottom="25.0" />
+                     </padding>
+                  </VBox>
+               </children>
+            </AnchorPane>
+         </content>
+      </ScrollPane>
    </children>
 </AnchorPane>

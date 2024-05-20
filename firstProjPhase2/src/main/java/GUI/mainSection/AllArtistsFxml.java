@@ -5,6 +5,7 @@ import GUI.PlayBar;
 import GUI.SetMainScene;
 import GUI.SuccesPopUp;
 import controller.ListenerControler;
+import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -17,6 +18,14 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import javafx.application.Application;
+import javafx.collections.*;
+import javafx.geometry.Insets;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+import javafx.util.Callback;
 
 public class AllArtistsFxml implements Initializable {
 
@@ -33,6 +42,7 @@ public class AllArtistsFxml implements Initializable {
         artists= ListenerControler.getListenerControler().showArtists();
         for(Artist artist:artists){
             allArtistsList.getItems().add(artist);
+           // allArtistsList.get().("-fx-background-color: black");
             allArtistsList.setOnMouseClicked(e->{
                 ArtistInfofxml.artist=artist;
                 HelloApplication.whereAmI.add(8);
