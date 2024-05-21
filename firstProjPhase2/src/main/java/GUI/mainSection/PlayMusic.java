@@ -1,9 +1,6 @@
 package GUI.mainSection;
 
-import GUI.IsLogin;
-import GUI.SetMainScene;
-import GUI.SuccesPopUp;
-import GUI.Warning;
+import GUI.*;
 import controller.ListenerControler;
 import exeptions.FreeAccountLimitException;
 import exeptions.NotFoundExeption;

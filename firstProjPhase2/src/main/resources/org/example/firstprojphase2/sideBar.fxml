@@ -41,7 +41,7 @@
                      <font>
                         <Font name="System Bold" size="30.0" />
                      </font></Button>
-                  <Button fx:id="artistBtn" layoutX="-1.0" layoutY="71.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="200.0" style="-fx-background-color: black;" text="All Artists" textFill="#818181">
+                  <Button fx:id="artistBtn" layoutX="-1.0" layoutY="71.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="200.0" style="-fx-background-color: black; -fx-background-radius: 50;" text="All Artists" textFill="#818181">
                      <font>
                         <Font name="System Bold" size="30.0" />
                      </font></Button>

@@ -121,19 +121,7 @@ public class HomeSugestForLogin implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ArrayList<Audio> audioArrayList=ListenerControler.getListenerControler().suggestAudio(numberOfSugestion);
-//        for (int i = 0; i < numberOfSugestion; i++) {
-//            sugestList.getItems().add(audioArrayList.get(i));
-//            PlayBar.setAudio(audioArrayList.get(i));
-//            PlayMusic.audio=audioArrayList.get(i);
-//            sugestList.setOnMouseClicked(e->{
-//                try {
-//                    HelloApplication.whereAmI.add(4);
-//                    SetMainScene.setScene(4);
-//                } catch (IOException ex) {
-//                    throw new RuntimeException(ex);
-//                }
-//            });
-//        }
+
         String path1= HelloApplication.class.getResource("images/"+audioArrayList.get(0).getCover()).toExternalForm();
         Image image1=new Image(path1);
         cover1.setFill(new ImagePattern(image1));

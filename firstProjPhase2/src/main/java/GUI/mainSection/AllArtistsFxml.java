@@ -40,19 +40,6 @@ public class AllArtistsFxml implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         artists= ListenerControler.getListenerControler().showArtists();
-//        for(Artist artist:artists){
-//            allArtistsList.getItems().add(artist);
-//           // allArtistsList.get().("-fx-background-color: black");
-//            allArtistsList.setOnMouseClicked(e->{
-//                ArtistInfofxml.artist=artist;
-//                HelloApplication.whereAmI.add(8);
-//                try {
-//                    SetMainScene.setScene(8);
-//                } catch (IOException ex) {
-//                    throw new RuntimeException(ex);
-//                }
-//            });
-//        }
         allArtistsList.getItems().addAll(artists);
         allArtistsList.setCellFactory(lv -> new ListCell<Artist>() {
             @Override
