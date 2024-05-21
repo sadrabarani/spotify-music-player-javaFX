@@ -45,20 +45,12 @@ public class AudioOfPlayList implements Initializable {
 
     @FXML
     private VBox vboxItems;
+
     @FXML
-    private ListView listAudiosPlayList;
+    private ListView<Audio> listAudiosPlayList;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        for(Object audio:playlist){
-            listAudiosPlayList.getItems().add((Audio) audio);
-            listAudiosPlayList.setOnMouseClicked(e->{
-                PlayMusic.audio= (Audio) audio;
-                PlayBar.setAudio((Audio) audio);
-                HelloApplication.whereAmI.add(4);
-                SetMainScene.setMainSection(4);
-            });
-        }
         for(Object audio:playlist){
             FXMLLoader fxmlLoaderl=new FXMLLoader(HelloApplication.class.getResource("songItem.fxml"));
             try {

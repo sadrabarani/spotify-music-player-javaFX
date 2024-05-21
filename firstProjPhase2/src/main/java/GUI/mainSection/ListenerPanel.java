@@ -137,7 +137,7 @@ public class ListenerPanel implements Initializable {
                     HelloApplication.whereAmI.add(11);
                     SetMainScene.setScene(11);
                 } catch (IOException ex) {
-                    throw new RuntimeException(ex);
+//                    throw new RuntimeException(ex);
                 }
             });
         }

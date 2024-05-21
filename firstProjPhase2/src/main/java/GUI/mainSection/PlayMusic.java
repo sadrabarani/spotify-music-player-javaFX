@@ -77,7 +77,6 @@ public class PlayMusic implements Initializable {
                     MenuItem menuItem = new MenuItem(playlist.getName());
                     menuItem.setOnAction(e -> {
                         try {
-                            System.out.println(playlist.getName());
                             ListenerControler.getListenerControler().AddAudio(playlist.getName(), audio.getId());
                         } catch (FreeAccountLimitException ex) {
                             Warning.warning(String.valueOf(ex.getClass()),ex.getMessage());
