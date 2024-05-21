@@ -14,12 +14,15 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
 import model.Audio.Audio;
+import model.Database.Database;
 import org.example.firstprojphase2.HelloApplication;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+
+import static GUI.mainSection.ArtistInfofxml.castArrayList;
 
 public class HomeSugestForLogin implements Initializable {
 
@@ -164,7 +167,7 @@ public class HomeSugestForLogin implements Initializable {
         Image image5=new Image(path5);
         cover13.setFill(new ImagePattern(image5));
         artistnamelbl3.setText(audioArrayList.get(4).getArtistName());
-        musicname1lbl3.setText(audioArrayList.get(4).getTitle());cover1.setOnMouseClicked(event->{
+        musicname1lbl3.setText(audioArrayList.get(4).getTitle());cover13.setOnMouseClicked(event->{
             setImageAct(audioArrayList,4);
         });
         String path6= HelloApplication.class.getResource("images/"+audioArrayList.get(5).getCover()).toExternalForm();
@@ -198,6 +201,11 @@ public class HomeSugestForLogin implements Initializable {
         });
     }
     private void setImageAct(ArrayList<Audio> audioArrayList,int num){
+        PlayMusic.audio=audioArrayList.get(num);
+        ArrayList<Audio> myArrayList = Database.getDatabase().getAudios();
+        PlayBar.setAudioArrayList(myArrayList);
+        PlayBar.setIndex(PlayBar.getAudioArrayList().indexOf(audioArrayList.get(num)));
+        PlayBar.setAudio(audioArrayList.get(num));
         PlayMusic.audio=audioArrayList.get(num);
         try {
             HelloApplication.whereAmI.add(4);
