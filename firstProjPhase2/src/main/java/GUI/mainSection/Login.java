@@ -162,10 +162,10 @@ public class Login implements Initializable , GeneralOperation {
                             Date date = null;
                             try {
                                 date = DateUtils.asDate(dateBirth.getValue());
-                            } catch (DateTimeException exception) {
+                                ListenerControler.getListenerControler().signUpListener(userNameTxt1.getText(), passTxt.getText(), fulNameTxt.getText(), emailTxt.getText(), phoneNimberTxt.getText(), date);
+                            } catch (Exception exception) {
                                 Warning.warning(String.valueOf(exception.getClass()), exception.getMessage());
                             }
-                            ListenerControler.getListenerControler().signUpListener(userNameTxt1.getText(), passTxt.getText(), fulNameTxt.getText(), emailTxt.getText(), phoneNimberTxt.getText(), date);
                             HelloApplication.whereAmI = new ArrayList<>();
                             signup();
                         } catch (InvalidFormatException | IOException | SameExistExption formatException) {

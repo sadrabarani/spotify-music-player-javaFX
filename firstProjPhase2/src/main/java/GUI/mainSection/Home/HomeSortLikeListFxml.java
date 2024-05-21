@@ -16,6 +16,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
 import model.Audio.Audio;
+import model.Database.Database;
 import org.example.firstprojphase2.HelloApplication;
 
 import java.io.IOException;
@@ -103,7 +104,6 @@ public class HomeSortLikeListFxml implements Initializable {
     @FXML
     private Label musicnamelbl2s;
 
-
     @FXML
     private AnchorPane moreAnchor;
 
@@ -114,22 +114,6 @@ public class HomeSortLikeListFxml implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ArrayList<Audio> audioArrayList= ListenerControler.getListenerControler().sortLikes();
-//        for (int i = 0; i < numberOfMostLiked; i++) {
-//            mostLikedList.getItems().add(audioArrayList.get(i));
-//            PlayBar.setAudio(audioArrayList.get(i));
-////            String path1= HelloApplication.class.getResource("images/pishro2.jpg").toExternalForm();
-////            Image image1=new Image(path1);
-////            mostLikedList.getItems().add(new HBox(new ImageView(image1)));
-//            PlayMusic.audio=audioArrayList.get(i);
-//            mostLikedList.setOnMouseClicked(e->{
-//                try {
-//                    HelloApplication.whereAmI.add(4);
-//                    SetMainScene.setScene(4);
-//                } catch (IOException ex) {
-//               //     throw new RuntimeException(ex);
-//                }
-//            });
-//        }
 
         String path1= HelloApplication.class.getResource("images/"+audioArrayList.get(0).getCover()).toExternalForm();
         Image image1=new Image(path1);
@@ -198,6 +182,11 @@ public class HomeSortLikeListFxml implements Initializable {
         });
     }
     private void setImageAct(ArrayList<Audio> audioArrayList,int num){
+        PlayMusic.audio=audioArrayList.get(num);
+        ArrayList<Audio> myArrayList = Database.getDatabase().getAudios();
+        PlayBar.setAudioArrayList(myArrayList);
+        PlayBar.setIndex(PlayBar.getAudioArrayList().indexOf(audioArrayList.get(num)));
+        PlayBar.setAudio(audioArrayList.get(num));
         PlayMusic.audio=audioArrayList.get(num);
         try {
             HelloApplication.whereAmI.add(4);

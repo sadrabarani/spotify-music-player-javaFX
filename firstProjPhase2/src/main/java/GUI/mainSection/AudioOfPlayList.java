@@ -13,10 +13,12 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import model.Audio.Audio;
 import model.Playlist;
+import model.UserAccount.Podcaster;
 import org.example.firstprojphase2.HelloApplication;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class AudioOfPlayList implements Initializable {
@@ -37,7 +39,7 @@ public class AudioOfPlayList implements Initializable {
     public static void setPlaylist(Playlist playlist) {
         AudioOfPlayList.playlist = playlist;
     }
-    //todo get play list
+
     @FXML
     private Button backBtn;
 
@@ -66,6 +68,8 @@ public class AudioOfPlayList implements Initializable {
                 vboxItems.getChildren().add(parent);
                 parent.setOnMouseClicked(e->{
                     PlayMusic.audio=(Audio) audio;
+                    PlayBar.setAudioArrayList(playlist.getAudios());
+                    PlayBar.setIndex(PlayBar.getAudioArrayList().indexOf(audio));
                     PlayBar.setAudio((Audio) audio);
                     try {
                         HelloApplication.whereAmI.add(4);

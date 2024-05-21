@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -40,20 +41,35 @@ public class PlayBar implements Initializable {
         PlayBar.playBar = playBar;
     }
 
+    public static ArrayList<Audio> getAudioArrayList() {
+        return audioArrayList;
+    }
+
     public static void setAudio(Audio audio) {
         PlayBar.audio = audio;
     }
 
-    private static int index=0;
+    private static int index;
     private static String path;
     private static Media media;
     private static MediaPlayer mediaPlayer;
     private static int playing=0;
+
+    public static int getIndex() {
+        return index;
+    }
+
+    public static void setIndex(int index) {
+        PlayBar.index = index;
+    }
+
     @FXML
     private Label musicNamelbl;
 
     @FXML
     private Button nextBtn;
+    @FXML
+    private ImageView coverImg;
 
     @FXML
     private Button playBtn;
@@ -68,6 +84,7 @@ public class PlayBar implements Initializable {
 
     @FXML
     private VBox vbox;
+
     private boolean running;
 
     @FXML
@@ -85,6 +102,8 @@ public class PlayBar implements Initializable {
             playBtn.setText("PAUSE");
             if (playing==0){
                 musicNamelbl.setText(audioArrayList.get(index).getTitle());
+                String path1= HelloApplication.class.getResource("images/"+audioArrayList.get(index).getCover()).toExternalForm();
+                coverImg.setImage(new Image(path1));
                 path = audioArrayList.get(index).getAudioFileLink();
                 media = new Media(path);
                 mediaPlayer = new MediaPlayer(media);
@@ -111,7 +130,7 @@ public class PlayBar implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        playMedia();
     }
 
 }

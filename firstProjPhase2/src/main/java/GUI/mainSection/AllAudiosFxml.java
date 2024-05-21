@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.chart.PieChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.AnchorPane;
@@ -50,19 +51,6 @@ public class AllAudiosFxml implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         audioArrayList= Database.getDatabase().getAudios();
-//        for(Audio audio:audioArrayList){
-//            allAudiosList.getItems().add(audio);
-//            allAudiosList.setOnMouseClicked(e->{
-//            PlayMusic.audio=audio;
-//            PlayBar.setAudio(audio);
-//                try {
-//                    HelloApplication.whereAmI.add(4);
-//                    SetMainScene.setScene(4);
-//                } catch (IOException ex) {
-//                   // throw new RuntimeException(ex);
-//                }
-//            });
-//        }
         for(Audio audio:audioArrayList){
             FXMLLoader fxmlLoaderl=new FXMLLoader(HelloApplication.class.getResource("songItem.fxml"));
             try {
@@ -70,41 +58,22 @@ public class AllAudiosFxml implements Initializable {
                 SongItemcontroller songItemcontroller=fxmlLoaderl.getController();
                 songItemcontroller.setData(audio);
                 vboxItems.getChildren().add(parent);
-                parent.setOnMouseClicked(e->{
-                PlayMusic.audio=audio;
-                PlayBar.setAudio(audio);
-                try {
-                    HelloApplication.whereAmI.add(4);
-                    SetMainScene.setScene(4);
-                } catch (IOException ex) {
-                    // throw new RuntimeException(ex);
-                }
-            });
+                parent.setOnMouseClicked(e-> {
+                    PlayMusic.audio = audio;
+                    PlayBar.setAudioArrayList(Database.getDatabase().getAudios());
+                    PlayBar.setIndex(Database.getDatabase().getAudios().indexOf(audio));
+                    PlayBar.setAudio(audio);
+                    try {
+                        HelloApplication.whereAmI.add(4);
+                        SetMainScene.setScene(4);
+                    } catch (IOException ex) {
+                        // throw new RuntimeException(ex);
+                    }
+                });
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
         }
-//        for (int i = 0; i < audioArrayList.size(); i++) {
-//            allAudiosList.getItems().add(audioArrayList.get(i));
-//            PlayBar.setAudio(audioArrayList.get(i));
-//            PlayMusic.audio=audioArrayList.get(i);
-//            allAudiosList.setOnMouseClicked(e->{
-//                try {
-//                    SetMainScene.setScene(4);
-//                } catch (IOException ex) {
-//                    throw new RuntimeException(ex);
-//                }
-//            });
-//        }
-//        backBtn.setOnMouseClicked(e->{
-//            HelloApplication.whereAmI.remove(HelloApplication.whereAmI.size()-1);
-//            System.out.println(HelloApplication.whereAmI);
-//            try {
-//                SetMainScene.setScene(HelloApplication.whereAmI.get(HelloApplication.whereAmI.size()-1));
-//            } catch (IOException ex) {
-//                throw new RuntimeException(ex);
-//            }
-//        });
     }
 }
 
