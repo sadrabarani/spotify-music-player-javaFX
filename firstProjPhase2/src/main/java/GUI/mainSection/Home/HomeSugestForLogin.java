@@ -115,8 +115,6 @@ public class HomeSugestForLogin implements Initializable {
 
     private int numberOfSugestion=8;
 
-    //todo change number
-    //todo add Audio to data base
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
