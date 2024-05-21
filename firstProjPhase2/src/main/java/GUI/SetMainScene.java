@@ -17,7 +17,6 @@ public class SetMainScene {
         switch (secNum) {
             case 1: //listener panel
                 FXMLLoader fxmlLoader=new FXMLLoader(HelloApplication.class.getResource("listenerPanel.fxml"));
-               // fxmlLoader.setRoot(new AnchorPane());
                 return fxmlLoader;
             case 2: //login panel
                 FXMLLoader fxmlLoader2=new FXMLLoader(HelloApplication.class.getResource("login.fxml"));
@@ -25,42 +24,30 @@ public class SetMainScene {
                 return fxmlLoader2;
             case 3: //favorite genre
                 FXMLLoader fxmlLoader3=new FXMLLoader(HelloApplication.class.getResource("fav_Genre.fxml"));
-                //fxmlLoader3.setRoot(new AnchorPane());
                 return fxmlLoader3;
             case 4: // play music
                 FXMLLoader fxmlLoader4=new FXMLLoader(HelloApplication.class.getResource("play_music.fxml"));
-              //  fxmlLoader4.setRoot(new AnchorPane());
                 return fxmlLoader4;
-//            case 5:
-//                FXMLLoader fxmlLoader5=new FXMLLoader(HelloApplication.class.getResource());
-//                return fxmlLoader5;
             case 6: //all audios
                 FXMLLoader fxmlLoader6=new FXMLLoader(HelloApplication.class.getResource("all-AudiosFxml.fxml"));
-               // fxmlLoader6.setRoot(new AnchorPane());
                 return fxmlLoader6;
             case 7: //all artist
                 FXMLLoader fxmlLoader7=new FXMLLoader(HelloApplication.class.getResource("all_ArtistsFxml.fxml"));
-                //fxmlLoader7.setRoot(new AnchorPane());
                 return fxmlLoader7;
             case 8: // artist info
                 FXMLLoader fxmlLoader8=new FXMLLoader(HelloApplication.class.getResource("artist_infofxml.fxml"));
-              //  fxmlLoader8.setRoot(new AnchorPane());
                 return fxmlLoader8;
             case 9: // home page for not login people
                 FXMLLoader fxmlLoader9=new FXMLLoader(HelloApplication.class.getResource("home_sortLikeListFxml.fxml"));
-               // fxmlLoader9.setRoot(new AnchorPane());
                 return fxmlLoader9;
             case 10: //home page for login people
                 FXMLLoader fxmlLoader10=new FXMLLoader(HelloApplication.class.getResource("home_SugestForLogin.fxml"));
-               // fxmlLoader10.setRoot(new AnchorPane());
                 return fxmlLoader10;
             case 11: //Audio of play list
                 FXMLLoader fxmlLoader11=new FXMLLoader(HelloApplication.class.getResource("audioOf_playList.fxml"));
-                fxmlLoader11.setRoot(new AnchorPane());
                 return fxmlLoader11;
             case 12: //search result
                 FXMLLoader fxmlLoader12=new FXMLLoader(HelloApplication.class.getResource("search_page.fxml"));
-              //  fxmlLoader12.setRoot(new AnchorPane());
                 return fxmlLoader12;
         }
         return new FXMLLoader(HelloApplication.class.getResource("listenerPanel.fxml"));

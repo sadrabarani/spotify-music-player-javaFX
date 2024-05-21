@@ -46,7 +46,7 @@ public class AudioOfPlayList implements Initializable {
     @FXML
     private VBox vboxItems;
     @FXML
-    private ListView<Audio> listAudiosPlayList;
+    private ListView listAudiosPlayList;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
