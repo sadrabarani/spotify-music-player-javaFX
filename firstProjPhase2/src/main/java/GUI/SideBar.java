@@ -4,6 +4,7 @@ import GUI.mainSection.PlayMusic;
 import GUI.mainSection.SearchPage;
 import controller.GeneralOperation;
 import controller.ListenerControler;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -144,6 +145,33 @@ public class SideBar implements Initializable , GeneralOperation {
                     throw new RuntimeException(ex);
                 }
             }
+        });
+        logInOutBtn.setOnMouseEntered(e->{
+            logInOutBtn.setStyle("-fx-background-color: #252323;");
+        });
+        logInOutBtn.setOnMouseExited(e->{
+            logInOutBtn.setStyle("-fx-background-color: #000000FF;");
+        });
+
+        libraryBtn.setOnMouseEntered(e->{
+            libraryBtn.setStyle("-fx-background-color: #252323;");
+        });
+        libraryBtn.setOnMouseExited(e->{
+            libraryBtn.setStyle("-fx-background-color: #000000FF;");
+        });
+
+        audiosBtn.setOnMouseEntered(e->{
+            audiosBtn.setStyle("-fx-background-color: #252323;");
+        });
+        audiosBtn.setOnMouseExited(e->{
+            audiosBtn.setStyle("-fx-background-color: #000000FF;");
+        });
+
+        artistBtn.setOnMouseEntered(e->{
+            artistBtn.setStyle("-fx-background-color: #252323;");
+        });
+        artistBtn.setOnMouseExited(e->{
+            artistBtn.setStyle("-fx-background-color: #000000FF;");
         });
     }
 }

@@ -74,6 +74,9 @@ public class ListenerPanel implements Initializable {
     private Button twoMonSubBtn;
 
     @FXML
+    private Button backbtn0;
+
+    @FXML
     private Label userlbl;
 
     @Override
@@ -129,8 +132,8 @@ public class ListenerPanel implements Initializable {
             playListView.getItems().add(playlist);
             playListView.setOnMouseClicked(e->{
                 AudioOfPlayList.setPlaylist(playlist);
-                HelloApplication.whereAmI.add(11);
                 try {
+                    HelloApplication.whereAmI.add(11);
                     SetMainScene.setScene(11);
                 } catch (IOException ex) {
                     throw new RuntimeException(ex);
@@ -167,6 +170,14 @@ public class ListenerPanel implements Initializable {
             }
         });
         backBtn4.setOnMouseClicked(e->{
+            try {
+                HelloApplication.whereAmI.remove(HelloApplication.whereAmI.size()-1);
+                SetMainScene.setScene(HelloApplication.whereAmI.get(HelloApplication.whereAmI.size()-1));
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
+        });
+        backbtn0.setOnMouseClicked(e->{
             try {
                 HelloApplication.whereAmI.remove(HelloApplication.whereAmI.size()-1);
                 SetMainScene.setScene(HelloApplication.whereAmI.get(HelloApplication.whereAmI.size()-1));

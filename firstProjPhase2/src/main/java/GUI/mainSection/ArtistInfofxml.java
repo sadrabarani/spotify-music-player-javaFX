@@ -12,13 +12,16 @@ import javafx.scene.control.TextArea;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import model.Audio.Audio;
+import model.Audio.Podcast;
 import model.UserAccount.Artist;
 import model.UserAccount.Podcaster;
 import model.UserAccount.Singer;
+import org.controlsfx.tools.Utils;
 import org.example.firstprojphase2.HelloApplication;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.ResourceBundle;
 
@@ -95,6 +98,9 @@ public class ArtistInfofxml implements Initializable {
                     vboxItems.getChildren().add(parent);
                     parent.setOnMouseClicked(e->{
                         PlayMusic.audio=audio;
+                        ArrayList<Audio> myArrayList = castArrayList(((Podcaster) artist).getPodcasts());
+                        PlayBar.setAudioArrayList(myArrayList);
+                        PlayBar.setIndex(PlayBar.getAudioArrayList().indexOf(audio));
                         PlayBar.setAudio(audio);
                         try {
                             HelloApplication.whereAmI.add(4);
@@ -117,6 +123,9 @@ public class ArtistInfofxml implements Initializable {
                     vboxItems.getChildren().add(parent);
                     parent.setOnMouseClicked(e->{
                         PlayMusic.audio=audio;
+                        ArrayList<Audio> myArrayList = castArrayList(((Singer) artist).getAlbums());
+                        PlayBar.setAudioArrayList(myArrayList);
+                        PlayBar.setIndex(PlayBar.getAudioArrayList().indexOf(audio));
                         PlayBar.setAudio(audio);
                         try {
                             HelloApplication.whereAmI.add(4);
@@ -130,6 +139,13 @@ public class ArtistInfofxml implements Initializable {
                 }
             }
         }
+    }
+    public static <newType, oldType> ArrayList<newType> castArrayList(ArrayList<oldType> list){
+        ArrayList<newType> newlyCastedArrayList = new ArrayList<newType>();
+        for(oldType listObject : list){
+            newlyCastedArrayList.add((newType)listObject);
+        }
+        return newlyCastedArrayList;
     }
 }
 
