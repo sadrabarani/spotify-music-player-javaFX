@@ -68,25 +68,31 @@ public class HelloApplication extends Application {
         Database.getDatabase().getAudios().add(music6);
         Database.getDatabase().getAudios().add(music7);
         Database.getDatabase().getAudios().add(music8);
-
-        Scene scene = null;
-        PlayBar.setAudioArrayList(Database.getDatabase().getAudios());
-        PlayBar.setAudio(Database.getDatabase().getAudios().get(0));
-
-        SuccesPopUp.setStage1(stage);
-        SetMainScene.setStage(stage);
         try {
-            HelloApplication.whereAmI.add(9);
-            SetMainScene.setScene(9);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
+            Scene scene = null;
+            PlayBar.setAudioArrayList(Database.getDatabase().getAudios());
+            PlayBar.setAudio(Database.getDatabase().getAudios().get(0));
 
-        stage.setTitle("music player");
-        String path1 = HelloApplication.class.getResource("images/icones.jpg").toExternalForm();
-        Image image1 = new Image(path1);
-        stage.getIcons().add(image1);
-        stage.show();
+            SuccesPopUp.setStage1(stage);
+            SetMainScene.setStage(stage);
+            try {
+                HelloApplication.whereAmI.add(9);
+                SetMainScene.setScene(9);
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+
+            stage.setTitle("music player");
+            String path1 = HelloApplication.class.getResource("images/icones.jpg").toExternalForm();
+            Image image1 = new Image(path1);
+            stage.getIcons().add(image1);
+            stage.show();
+            stage.setOnCloseRequest(e->{
+                Warning.warning("close request","have a good day");
+            });
+        }finally {
+            Warning.warning("ended","have a good day");
+        }
     }
     public static void main(String[] args) {
         launch();

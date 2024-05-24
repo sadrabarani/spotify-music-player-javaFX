@@ -153,7 +153,7 @@ public class Login implements Initializable , GeneralOperation {
                         } catch (IOException ex) {
                             throw new RuntimeException(ex);
                         }
-                    }//todo date pickerrrrrrrrrrrrrrrrrrrrrr
+                    }
                     if (userNameTxt1.getText().isEmpty() || passTxt.getText().isEmpty() || fulNameTxt.getText().isEmpty() ||
                             emailTxt.getText().isEmpty() || phoneNimberTxt.getText().isEmpty()) {
                         Warning.warning("please compelete every field .", "Field is empty ");
@@ -183,7 +183,7 @@ public class Login implements Initializable , GeneralOperation {
                         } catch (IOException ex) {
                             throw new RuntimeException(ex);
                         }
-                    }//todo date pickerrrrrrrrrrrrrrrrrrrrrr
+                    }
                     if (userNameTxt1.getText().isEmpty() || passTxt.getText().isEmpty() || fulNameTxt.getText().isEmpty() ||
                             emailTxt.getText().isEmpty() || phoneNimberTxt.getText().isEmpty()) {
                         Warning.warning("please compelete every field .", "Field is empty ");
