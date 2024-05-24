@@ -1,5 +1,6 @@
 package GUI.mainSection;
 
+import GUI.IsLogin;
 import GUI.SetMainScene;
 import GUI.Warning;
 import controller.ListenerControler;
@@ -178,6 +179,13 @@ public class FavGenre implements Initializable {
                 while(numberOfSelection<=0) {
                     ListenerControler.getListenerControler().chooseFavoriteGenre(selectedItems.get(numberOfSelection-1));
                     numberOfSelection--;
+                }
+                HelloApplication.whereAmI.add(10);
+                IsLogin.setIsLogin(true);
+                try {
+                    SetMainScene.setScene(10);
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
                 }
             }
         });

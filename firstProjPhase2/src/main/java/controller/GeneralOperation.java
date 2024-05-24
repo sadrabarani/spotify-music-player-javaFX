@@ -25,9 +25,9 @@ public interface GeneralOperation {
     }
     default void signup() throws IOException {
         HelloApplication.whereAmI=new ArrayList<>();
-        HelloApplication.whereAmI.add(10);
+        HelloApplication.whereAmI.add(3);
         IsLogin.setIsLogin(true);
-        SetMainScene.setScene(10);
+        SetMainScene.setScene(3);
     }
     default void search(String str){
         SearchPage.setArrayList(ListenerControler.getListenerControler().searchByArtistName(str));
